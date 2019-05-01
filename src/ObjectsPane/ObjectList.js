@@ -3,6 +3,7 @@ import React from 'react';
 class ObjectList extends React.Component {
     constructor(props) {
         super(props);
+        this.state = { objects: props.objects };
     }
 
     render() {
