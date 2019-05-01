@@ -22,7 +22,8 @@ class ObjectsPane extends React.Component {
     render() {
       return <div className="Object-Pane Pane">
         <h1>This is components pane</h1>
-        <ObjectList objects={this.state.objects}/>
+        <button onClick={this.onClickAdd}>Add object</button>
+        <ObjectList objects={this.state.objects} />
       </div>
     }
   }
