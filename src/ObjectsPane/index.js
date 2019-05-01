@@ -7,6 +7,16 @@ class ObjectsPane extends React.Component {
     super(props);
 
     this.state = { objects: props.objects };
+
+    this.onClickAdd = this.onClickAdd.bind(this);
+  }
+
+  onClickAdd(event) {
+    let newObjects = this.state.objects;
+    let num = newObjects.length+1;
+    newObjects.push({name: "Figure "+ num});
+    this.setState({ objects : newObjects});
+    event.preventDefault();
   }
 
     render() {
