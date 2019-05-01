@@ -9,7 +9,7 @@ class ObjectList extends React.Component {
     render() {
         const versionItems = this.state.objects.map((item, index) => {
             return (
-                <li> {item.name} </li>
+                <li key={index}> {item.name} </li>
            )
        });
 
