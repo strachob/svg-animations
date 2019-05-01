@@ -7,11 +7,15 @@ class ObjectList extends React.Component {
     }
 
     render() {
+        const versionItems = this.state.objects.map((item, index) => {
+            return (
+                <li> {item.name} </li>
+           )
+       });
+
         return <div>
             <ul>
-                <li>First object</li>
-                <li>Second object</li>
-                <li>Third object</li>
+                {versionItems}
             </ul>
             </div>;
     }
