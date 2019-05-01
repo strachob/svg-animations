@@ -7,7 +7,7 @@ class ObjectList extends React.Component {
     }
 
     render() {
-        const versionItems = this.state.objects.map((item, index) => {
+        const objectsLis = this.state.objects.map((item, index) => {
             return (
                 <li key={index}> {item.name} </li>
            )
@@ -15,7 +15,7 @@ class ObjectList extends React.Component {
 
         return <div>
             <ul>
-                {versionItems}
+                {objectsLis}
             </ul>
             </div>;
     }
