@@ -3,14 +3,19 @@ import React from 'react';
 class ObjectList extends React.Component {
     constructor(props) {
         super(props);
+        this.state = { objects: props.objects };
     }
 
     render() {
+        const versionItems = this.state.objects.map((item, index) => {
+            return (
+                <li> {item.name} </li>
+           )
+       });
+
         return <div>
             <ul>
-                <li>First object</li>
-                <li>Second object</li>
-                <li>Third object</li>
+                {versionItems}
             </ul>
             </div>;
     }

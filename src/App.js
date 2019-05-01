@@ -8,7 +8,7 @@ import AnimationPane from './AnimationPane';
 function App() {
   return (
     <div className="App">
-    <ObjectsPane/>
+    <ObjectsPane objects={objects}/>
     <ObjectProps/>
     <AnimationPane image={logo}/>
     </div>
@@ -16,3 +16,10 @@ function App() {
 }
 
 export default App;
+
+
+const objects = [
+  {name: "Figure 1"},
+  {name: "Figure 2"},
+  {name: "Figure 3"},
+  ];
