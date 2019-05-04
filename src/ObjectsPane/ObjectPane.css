@@ -12,3 +12,16 @@
     margin-bottom: 10px;
     text-align: center;
 }
+
+.List-Object {
+    text-align: center;
+    vertical-align: sub;
+}
+
+
+.List-Object:hover {
+    background-color: lightblue;
+    width: 105%;
+    height: 52px;
+    font-weight: bold;
+}

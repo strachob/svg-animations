@@ -6,8 +6,12 @@ class ObjectsPane extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { objects: props.objects };
+    this.state = { 
+      objects: props.objects,
+      selected: undefined 
+    };
 
+    this.trasnportObjectToParent = this.trasnportObjectToParent.bind(this);
     this.onClickAdd = this.onClickAdd.bind(this);
   }
 
@@ -19,11 +23,15 @@ class ObjectsPane extends React.Component {
     event.preventDefault();
   }
 
+  trasnportObjectToParent(obj){
+    this.props.selectItem(obj);
+  }
+
     render() {
       return <div className="Object-Pane Pane">
         <h1>This is components pane</h1>
         <button onClick={this.onClickAdd}>Add object</button>
-        <ObjectList objects={this.state.objects} />
+        <ObjectList objects={this.state.objects} selectItem={this.trasnportObjectToParent} />
       </div>
     }
   }
