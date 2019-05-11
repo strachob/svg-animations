@@ -13,9 +13,9 @@ class AnimationPane extends React.Component {
   }
 
     render() {
-      return <div className="Animation-Pane Pane">
+      return <div className="animation-pane pane">
         <h1>This is animation pane</h1>
-        <img src={this.state.svg} className="Animation" alt="svg animation" />
+        <img src={this.state.svg} className="animation" alt="svg animation" />
       </div>
     }
   }

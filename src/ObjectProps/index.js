@@ -15,7 +15,7 @@ class ObjectProps extends React.Component {
   // }
 
     render() {
-      return <div className="Object-Props Pane">
+      return <div className="object-props pane">
         <h1>This is object properties pane</h1>
         <h2>You are currently modifing {this.props.selectedItem.name}</h2>
         <p>X position:</p>
