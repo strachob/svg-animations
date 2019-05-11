@@ -14,7 +14,11 @@ class AnimationPane extends React.Component {
 
     render() {
       return <div className="animation-pane pane">
-        <h1>This is animation pane</h1>
+      <div>
+        <h1 className="display-4 figure-header">See what happends
+        <button className="btn btn-primary export"> Export SVG </button></h1>
+        
+      </div>
         <img src={this.state.svg} className="animation" alt="svg animation" />
       </div>
     }
