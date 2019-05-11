@@ -2,17 +2,17 @@ body {
   margin: 0;
 }
 
-.App {
+.app {
   text-align: left;
 }
 
-.Pane {
+.pane {
   float: left;
   height: 100vh;
-  margin: 10px;
+  /* margin: 10px; */
 }
 
-.App-header {
+.app-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -23,6 +23,6 @@ body {
   color: white;
 }
 
-.App-link {
+.app-link {
   color: #61dafb;
 }

@@ -1,25 +1,36 @@
-.Object-Pane{
+.object-pane{
     width: 20%;
-    left: 0;
+    /* left: 0; */
+    position: relative;
+    background-color: rgb(221, 212, 247);
 }
 
-.Object-Pane li{
+.object-pane li{
     display: block;
-    width: 100%;
+    width: 70%;
     height: 50px;
     border: 1px solid #000;
     float: left;
-    margin-bottom: 10px;
     text-align: center;
+    margin-left: 15%;
 }
 
-.List-Object {
+.object-pane-header {
+    
+}
+
+.new-obj-btn {
+    margin-left: 2px;
+    color: rgb(114, 85, 192);
+}
+
+.list-object {
     text-align: center;
     vertical-align: sub;
 }
 
 
-.List-Object:hover {
+.list-object:hover {
     background-color: lightblue;
     width: 105%;
     height: 52px;
