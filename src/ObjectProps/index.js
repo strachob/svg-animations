@@ -16,8 +16,10 @@ class ObjectProps extends React.Component {
 
     render() {
       return <div className="object-props pane">
-        <h1>This is object properties pane</h1>
+      <div className="object-pane-header">
+        <h1 className="display-4 figure-header">Modify a figure</h1>
         <h2>You are currently modifing {this.props.selectedItem.name}</h2>
+      </div>
         <p>X position:</p>
         <input type="range" className="slider" onChange={this.props.posChange.bind(this)} value={this.props.selectedItem.x}/>
         <p>Current {this.props.selectedItem.name} X is set to: {this.props.selectedItem.x}</p>
