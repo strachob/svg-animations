@@ -30,10 +30,11 @@ class App extends React.Component{
 
   render(){
     return (
-      <div className="App">
+      <div className="app">
       <ObjectsPane objects={objects} selectItem={this.selectItemFunc}/>
       <ObjectProps selectedItem={objects[this.state.selectedObjectItem]} posChange={this.changeX} />
       <AnimationPane image={logo}/>
+      <div className="footer text-muted font-italic"><strong>SVG Madness</strong> - Michał Chęciński and Bartosz Strachowski</div>
       </div>
     );
   }

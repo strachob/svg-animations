@@ -8,8 +8,22 @@ body {
 
 .pane {
   float: left;
-  height: 100vh;
+  height: 94.5vh;
   /* margin: 10px; */
+  background-color: rgb(221, 212, 247);
+}
+
+.footer {
+  background-color: rgb(166, 146, 190);
+  text-align: center;
+  font-size: 35px;
+}
+
+.figure-header {
+  margin-top: 5%;
+  margin-left: 15%;
+  margin-bottom: 5%;
+  vertical-align: middle;
 }
 
 .app-header {
@@ -25,4 +39,12 @@ body {
 
 .app-link {
   color: #61dafb;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: #8064A2 !important;
+}
+
+.object-pane-header {
+  height: 25%;
 }
