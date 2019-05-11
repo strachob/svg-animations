@@ -15,14 +15,14 @@ class ObjectList extends React.Component {
     render() {
         const objectsLis = this.state.objects.map((item, index) => {
             return (
-                <li key={index} onClick={() => this.handleClick(index)} className="List-Object"> 
+                <li key={index} onClick={() => this.handleClick(index)} className="list-group-item list-group-item-action"> 
                     {item.name}
                  </li>
            )
        });
 
         return <div>
-            <ul>
+            <ul className="list-group">
                 {objectsLis}
             </ul>
             </div>;

@@ -20,6 +20,7 @@ class ObjectsPane extends React.Component {
     let num = newObjects.length+1;
     newObjects.push({name: "Figure "+ num});
     this.setState({ objects : newObjects});
+    this.props.selectItem(newObjects.length-1);
     event.preventDefault();
   }
 
@@ -28,12 +29,25 @@ class ObjectsPane extends React.Component {
   }
 
     render() {
-      return <div className="Object-Pane Pane">
-        <h1>This is components pane</h1>
-        <button onClick={this.onClickAdd}>Add object</button>
+      return( 
+      <div className="object-pane pane">
+        <div className="object-pane-header">
+          <h4 className="display-4 figure-header">Select or Add a figure</h4>
+          <button onClick={this.onClickAdd} 
+                  className="btn btn-primary new-obj-btn" 
+                  type="button">
+                   <i className="fa fa-plus"></i>
+              Add new figure
+             
+          </button>
+        </div>
         <ObjectList objects={this.state.objects} selectItem={this.trasnportObjectToParent} />
       </div>
+      );
     }
   }
+
+
+
 
   export default ObjectsPane;

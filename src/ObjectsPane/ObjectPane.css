@@ -2,7 +2,7 @@
     width: 20%;
     /* left: 0; */
     position: relative;
-    background-color: rgb(221, 212, 247);
+    
 }
 
 .object-pane li{
@@ -15,12 +15,9 @@
     margin-left: 15%;
 }
 
-.object-pane-header {
-    
-}
-
 .new-obj-btn {
-    margin-left: 2px;
+    margin-left: 35%;
+    margin-bottom: 5%;
     color: rgb(114, 85, 192);
 }
 
