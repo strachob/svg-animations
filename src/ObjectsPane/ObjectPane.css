@@ -11,14 +11,26 @@
     height: 50px;
     border: 1px solid #000;
     float: left;
-    text-align: center;
     margin-left: 15%;
+}
+
+.trash-btn{
+    margin-top: -5px;
+    float: right;
+    opacity: 0;
+  }
+  
+  .trash-btn:hover{
+    opacity: 1;
+  }
+
+.object-pane li:hover{
+    font-weight: bold;
 }
 
 .new-obj-btn {
     margin-left: 35%;
     margin-bottom: 5%;
-    color: rgb(114, 85, 192);
 }
 
 .list-object {
