@@ -12,27 +12,54 @@ class App extends React.Component{
       selectedObjectItem: 0,
       objs: objects
     };
-
-    this.selectItemFunc = this.selectItemFunc.bind(this);
-    this.changeX = this.changeX.bind(this);
   }
 
-  selectItemFunc(obj){
+  selectItemFunc = (e,obj) => {
+    if(e.target.innerHTML === "")
+    {
+      e.preventDefault();
+      if(obj === this.state.objs.length)
+      // this.setState({selectedObjectItem: obj-1});
+    }else{
     this.setState({selectedObjectItem: obj});
-    console.log(objects[this.state.selectedObjectItem]);
+    }
   }
 
-  changeX(e){
-    e.preventDefault();
+
+  changeName = (e,name) => {
+    if(name !== ""){
+      objects[this.state.selectedObjectItem].name = name;
+    }
+    else if(e.keyCode == 13){
+      objects[this.state.selectedObjectItem].name = e.target.value;
+      
+    }
+    this.setState({objs: objects});
+  }
+
+  changeX = (e) => {
     objects[this.state.selectedObjectItem].x = e.target.value;
+    this.setState({objs: objects});
+  }
+
+  changeY = (e) => {
+    objects[this.state.selectedObjectItem].y = e.target.value;
     this.setState({objs: objects});
   }
 
   render(){
     return (
       <div className="app">
-      <ObjectsPane objects={objects} selectItem={this.selectItemFunc}/>
-      <ObjectProps selectedItem={objects[this.state.selectedObjectItem]} posChange={this.changeX} />
+      <ObjectsPane 
+        objects={this.state.objs} 
+        selectItem={this.selectItemFunc}/>
+
+      <ObjectProps 
+        selectedItem={objects[this.state.selectedObjectItem]} 
+        nameChange={this.changeName}
+        xChange={this.changeX}
+        yChange={this.changeY} />
+
       <AnimationPane image={logo}/>
       <div className="footer text-muted font-italic"><strong>SVG Madness</strong> - Michał Chęciński and Bartosz Strachowski</div>
       </div>
