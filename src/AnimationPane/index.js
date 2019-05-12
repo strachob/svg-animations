@@ -1,5 +1,6 @@
 import React from 'react';
 import './AnimationPane.css';
+import { ReactComponent as Logo} from '../logo.svg';
 
 class AnimationPane extends React.Component {
   constructor(props) {
@@ -14,12 +15,15 @@ class AnimationPane extends React.Component {
 
     render() {
       return <div className="animation-pane pane">
-      <div>
-        <h1 className="display-4 figure-header">See what happends
-        <button className="btn btn-primary export"> Export SVG </button></h1>
+        <div>
+          <h1 className="display-4 figure-header">See what happends
+          <button className="btn btn-primary export"> Export SVG </button></h1>
         
-      </div>
-        <img src={this.state.svg} className="animation" alt="svg animation" />
+        </div>
+        <div className="animation" >
+        {/* <img src={this.state.svg} className="animation" alt="svg animation" /> */}
+        <Logo />
+        </div>
       </div>
     }
   }
