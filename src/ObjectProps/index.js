@@ -25,8 +25,8 @@ class ObjectProps extends React.Component {
                     aria-label="Recipient's username" aria-describedby="basic-addon2"
                     onKeyUp={(e) => this.props.nameChange(e, "")}
                     onChange={(e) => this.setState({name: e.target.value})}/>
-            <div class="input-group-append">
-              <button class="btn btn-primary" type="button" onClick={(e) => this.props.nameChange(e, this.state.name)}>Save</button>
+            <div className="input-group-append">
+              <button className="btn btn-primary" type="button" onClick={(e) => this.props.nameChange(e, this.state.name)}>Save</button>
             </div>
           </div>
           </p>
