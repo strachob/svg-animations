@@ -10,9 +10,9 @@ class App extends React.Component{
     super(props);
     this.state = {
       selectedObjectItem: 0,
-      objs:  [{name: "Figure 1", x: 75},
-      {name: "Figure 2", x: 45},
-      {name: "Figure 3", x: 35}]
+      objs:  [{name: "Figure 1", x: 75, opacity: 1, type: "circle"},
+      {name: "Figure 2", x: 45, opacity: 1, type: "circle"},
+      {name: "Figure 3", x: 35, opacity: 1, type: "circle"}]
     };
   }
 
@@ -47,24 +47,40 @@ class App extends React.Component{
   }
 
   changeName = (e,name) => {
+    let objects = [...this.state.objs];
     if(name !== ""){
-      this.state.objs[this.state.selectedObjectItem].name = name;
+      objects[this.state.selectedObjectItem].name = name;
     }
-    else if(e.keyCode == 13){
-      this.state.objs[this.state.selectedObjectItem].name = e.target.value;
+    else if(e.keyCode === 13){
+      objects[this.state.selectedObjectItem].name = e.target.value;
+      e.target.value = "";
       
     }
-    this.setState({objs: this.state.objs});
+    this.setState({objs: objects});
   }
 
   changeX = (e) => {
-    this.state.objs[this.state.selectedObjectItem].x = e.target.value;
-    this.setState({objs: this.state.objs});
+    let objects = [...this.state.objs];
+    objects[this.state.selectedObjectItem].x = e.target.value;
+    this.setState({objs: objects});
   }
 
   changeY = (e) => {
-    this.state.objs[this.state.selectedObjectItem].y = e.target.value;
-    this.setState({objs: this.state.objs});
+    let objects = [...this.state.objs];
+    objects[this.state.selectedObjectItem].y = e.target.value;
+    this.setState({objs: objects});
+  }
+
+  changeOpacity = (e) => {
+    let objects = [...this.state.objs];
+    objects[this.state.selectedObjectItem].opacity = e.target.value;
+    this.setState({objs: objects});
+  }
+
+  changeType = (e) => {
+    let objects = [...this.state.objs];
+    objects[this.state.selectedObjectItem].type = e.target.value;
+    this.setState({objs: objects});
   }
 
   render(){
@@ -81,7 +97,11 @@ class App extends React.Component{
         selectedItem={this.state.objs[this.state.selectedObjectItem]} 
         nameChange={this.changeName}
         xChange={this.changeX}
-        yChange={this.changeY} />
+        yChange={this.changeY}
+        opacityChange={this.changeOpacity}
+        typeChange={this.changeType}
+
+         />
       ) : (
         <div className="object-props pane">
           <div className="object-pane-header">
