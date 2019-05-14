@@ -22,37 +22,28 @@ class App extends React.Component{
     newObjects.push({name: "Figure "+ num});
     this.setState({ objs : newObjects});
     this.selectItemFunc(e, newObjects.length-1);
-    // e.preventDefault();
   }
 
   selectItemFunc = (e,obj) => {
-    // if(e.target.innerHTML === "")
-    // {
-    //   e.preventDefault();
-    //   if(obj === this.state.objs.length)
-    //   // this.setState({selectedObjectItem: obj-1});
-    // }else{
     this.setState({selectedObjectItem: obj});
-    // }
   }
 
   deleteItemFunc = (e,obj) => {
+    var newSelectedIndex = obj;
+    if(obj === this.state.objs.length-1) {
+      newSelectedIndex = obj - 1;
+    }
 
-    // this.setState(state => {
-    //   const objects = state.objects.filter((item, j) => obj !== j);
-
-    //   return {
-    //     objects,
-    //   };
-    // });
     const objs = [...this.state.objs];
     
     objs.splice(obj, 1);
     
     this.setState({
-      objs: objs
+      objs: objs,
+      selectedObjectItem: newSelectedIndex
     });
-    this.selectItemFunc(e,0);
+
+    e.stopPropagation();
   }
 
   changeName = (e,name) => {
@@ -77,7 +68,6 @@ class App extends React.Component{
   }
 
   render(){
-    console.log(this.state.selectedObjectItem);
     return (
       <div className="app">
       <ObjectsPane 
@@ -86,13 +76,19 @@ class App extends React.Component{
         selectItem={this.selectItemFunc}
         deleteItem={this.deleteItemFunc} />
 
-
-      <ObjectProps 
+      { (this.state.objs.length !== 0) ? (
+        <ObjectProps 
         selectedItem={this.state.objs[this.state.selectedObjectItem]} 
         nameChange={this.changeName}
         xChange={this.changeX}
         yChange={this.changeY} />
-
+      ) : (
+        <div className="object-props pane">
+          <div className="object-pane-header">
+          </div>
+        </div> 
+      )}
+    
       <AnimationPane image={logo}/>
       <div className="footer text-muted font-italic"><strong>SVG Madness</strong> - Michał Chęciński and Bartosz Strachowski</div>
       </div>
