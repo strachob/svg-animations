@@ -7,30 +7,34 @@ class ObjectProps extends React.Component {
     super(props);
     this.state = {
       name: this.props.selectedItem.name,
-      displayPicker: false,
-      fillChangeColor: "#999",
-      defaultColor: "#999",
-      fillColor: {
-        r: "0",
-        g: "9",
-        b: "153",
-        a: "1"
-      }
+      displayFillPicker: false,
+      displayStrokePicker: false,
+      defaultColor: "#999"
     }
   }
 
-  onPickerShow = () => {
-    this.setState({displayPicker: true});
-  }
+  onFillPickerShow = () => {
+    this.setState({displayFillPicker: true});
+  };
 
-  onPickerChanged = color => {
-    console.log(color);
+  onStrokePickerShow = () => {
+    this.setState({displayStrokePicker: true});
+  };
+
+  onFillPickerChanged = color => {
     this.setState({
-      fillColor: color.rgb,
-      fillChangeColor: color.hex,
-      displayPicker: false
-    });
-  }
+      displayFillPicker: false
+    })
+    this.props.fillColorChange(color.hex);
+  };
+
+  onStrokePickerChanged = color => {
+    this.setState({
+      displayStrokePicker: false
+    })
+    this.props.strokeColorChange(color.hex);
+  };
+
   
   render() {
     return( 
@@ -84,11 +88,11 @@ class ObjectProps extends React.Component {
         <div className="object-prop-control">
           <div className="input-group mb-3">
             <input type="text" 
-                  onClick={() => this.onPickerShow()} 
-                  value={this.state.fillChangeColor}
+                  onClick={() => this.onFillPickerShow()} 
+                  value={this.props.selectedItem.fillColor}
                   className="form-control"
-                  style={{backgroundColor: this.state.fillChangeColor}}/>
-            {this.state.displayPicker && <CompactPicker onChange={this.onPickerChanged}/>}
+                  style={{backgroundColor: this.props.selectedItem.fillColor}}/>
+            {this.state.displayFillPicker && <CompactPicker onChange={this.onFillPickerChanged}/>}
           </div>
         </div>
         </p>
@@ -97,11 +101,11 @@ class ObjectProps extends React.Component {
         <div className="object-prop-control">
           <div className="input-group mb-3">
             <input type="text" 
-                  onClick={() => this.onPickerShow()} 
-                  value={this.state.fillChangeColor}
+                  onClick={() => this.onStrokePickerShow()} 
+                  value={this.props.selectedItem.strokeColor}
                   className="form-control"
-                  style={{backgroundColor: this.state.fillChangeColor}}/>
-            {this.state.displayPicker && <CompactPicker onChange={this.onPickerChanged}/>}
+                  style={{backgroundColor: this.props.selectedItem.strokeColor}}/>
+            {this.state.displayStrokePicker && <CompactPicker onChange={this.onStrokePickerChanged}/>}
           </div>
         </div>
         </p>

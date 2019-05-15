@@ -10,9 +10,11 @@ class App extends React.Component{
     super(props);
     this.state = {
       selectedObjectItem: 0,
-      objs:  [{name: "Figure 1", x: 75, opacity: 1, type: "circle"},
-      {name: "Figure 2", x: 45, opacity: 1, type: "circle"},
-      {name: "Figure 3", x: 35, opacity: 1, type: "circle"}]
+      objs:  [
+      {name: "Figure 1", x: 75, opacity: 1, type: "circle", fillColor: "#f1f111", strokeColor: "#6b7d1c"},
+      {name: "Figure 2", x: 45, opacity: 1, type: "circle", fillColor: "#f1f111", strokeColor: "#6b7d1c"},
+      {name: "Figure 3", x: 35, opacity: 1, type: "circle", fillColor: "#f1f111", strokeColor: "#6b7d1c"}
+    ]
     };
   }
 
@@ -33,11 +35,8 @@ class App extends React.Component{
     if(obj === this.state.objs.length-1) {
       newSelectedIndex = obj - 1;
     }
-
     const objs = [...this.state.objs];
-    
     objs.splice(obj, 1);
-    
     this.setState({
       objs: objs,
       selectedObjectItem: newSelectedIndex
@@ -83,6 +82,22 @@ class App extends React.Component{
     this.setState({objs: objects});
   }
 
+  changefillColor = color => {
+    let objects = [...this.state.objs];
+    objects[this.state.selectedObjectItem].fillColor = color;
+    this.setState({
+      objs: objects
+    });
+  }
+
+  changeStrokeColor = color => {
+    let objects = [...this.state.objs];
+    objects[this.state.selectedObjectItem].strokeColor = color;
+    this.setState({
+      objs: objects
+    });
+  }
+
   render(){
     return (
       <div className="app">
@@ -100,7 +115,8 @@ class App extends React.Component{
         yChange={this.changeY}
         opacityChange={this.changeOpacity}
         typeChange={this.changeType}
-
+        fillColorChange={this.changefillColor}
+        strokeColorChange={this.changeStrokeColor}
          />
       ) : (
         <div className="object-props pane">
