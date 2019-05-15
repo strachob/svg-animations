@@ -1,5 +1,6 @@
 import React from 'react';
 import './ObjectProps.css';
+import { CircleSettings, SquareSettings, PolygonSettings } from './ShapeSettings';
 import {CompactPicker} from 'react-color';
 
 class ObjectProps extends React.Component {
@@ -33,6 +34,31 @@ class ObjectProps extends React.Component {
       displayStrokePicker: false
     })
     this.props.strokeColorChange(color.hex);
+  };
+
+  renderBasedOnType = () => {
+    switch(this.props.selectedItem.type){
+      case "Circle":
+        return(
+          <CircleSettings 
+            diameterChange={this.props.diameterChange} 
+            selectedItem={this.props.selectedItem}/>
+        );
+      case "Square":
+        return(
+          <SquareSettings 
+            sizeChange={this.props.sizeChange} 
+            selectedItem={this.props.selectedItem} />
+        );
+      case "Polygon":
+        return(
+          <PolygonSettings 
+            sizeChange={this.props.sizeChange} 
+            sidesChange={this.props.sidesChange}
+            startAngleChange={this.props.startAngleChange}
+            selectedItem={this.props.selectedItem} />
+        );
+    }
   };
 
   
@@ -109,7 +135,8 @@ class ObjectProps extends React.Component {
           </div>
         </div>
         </p>
-        
+        {this.renderBasedOnType()}
+
         </div>
     </div>
     );

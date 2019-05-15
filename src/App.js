@@ -11,19 +11,21 @@ class App extends React.Component{
     this.state = {
       selectedObjectItem: 0,
       objs:  [
-      {name: "Figure 1", x: 75, opacity: 1, type: "circle", fillColor: "#f1f111", strokeColor: "#6b7d1c"},
-      {name: "Figure 2", x: 45, opacity: 1, type: "circle", fillColor: "#f1f111", strokeColor: "#6b7d1c"},
-      {name: "Figure 3", x: 35, opacity: 1, type: "circle", fillColor: "#f1f111", strokeColor: "#6b7d1c"}
+      {name: "Figure 1", x: 75, y: 35, opacity: 1, type: "circle", fillColor: "#f1f111", strokeColor: "#6b7d1c"},
+      {name: "Figure 2", x: 45, y: 45, opacity: 1, type: "circle", fillColor: "#f1f111", strokeColor: "#6b7d1c"},
+      {name: "Figure 3", x: 35, y: 75, opacity: 1, type: "circle", fillColor: "#f1f111", strokeColor: "#6b7d1c"}
     ]
     };
   }
 
   addItemFunc = (e) => {
-    let newObjects = this.state.objs;
+    let newObjects = [...this.state.objs];
     let num = newObjects.length+1;
     newObjects.push({name: "Figure "+ num});
-    this.setState({ objs : newObjects});
-    this.selectItemFunc(e, newObjects.length-1);
+    this.setState({ 
+      objs : newObjects,
+      selectedObjectItem: newObjects.length-1
+    });
   }
 
   selectItemFunc = (e,obj) => {
@@ -98,6 +100,30 @@ class App extends React.Component{
     });
   }
 
+  changeDiameter = (e) => {
+    let objects = [...this.state.objs];
+    objects[this.state.selectedObjectItem].diameter = e.target.value;
+    this.setState({objs: objects});
+  }
+
+  changeSize = (e) => {
+    let objects = [...this.state.objs];
+    objects[this.state.selectedObjectItem].size = e.target.value;
+    this.setState({objs: objects});
+  }
+
+  changeSides = (e) => {
+    let objects = [...this.state.objs];
+    objects[this.state.selectedObjectItem].sides = e.target.value;
+    this.setState({objs: objects});
+  }
+
+  changeStartAngle = (e) => {
+    let objects = [...this.state.objs];
+    objects[this.state.selectedObjectItem].startAngle = e.target.value;
+    this.setState({objs: objects});
+  }
+
   render(){
     return (
       <div className="app">
@@ -117,6 +143,10 @@ class App extends React.Component{
         typeChange={this.changeType}
         fillColorChange={this.changefillColor}
         strokeColorChange={this.changeStrokeColor}
+        diameterChange={this.changeDiameter}
+        sizeChange={this.changeSize}
+        sidesChange={this.changeSides}
+        startAngleChange={this.changeStartAngle}
          />
       ) : (
         <div className="object-props pane">
