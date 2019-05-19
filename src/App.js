@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import ObjectsPane from './ObjectsPane';
-import ObjectProps from './ObjectProps';
+import ObjectSettings from './ObjectProps';
 import AnimationPane from './AnimationPane';
 
 class App extends React.Component{
@@ -146,7 +146,7 @@ class App extends React.Component{
         deleteItem={this.deleteItemFunc} />
 
       { (this.state.objs.length !== 0) ? (
-        <ObjectProps
+        <ObjectSettings
         selectedItem={this.state.objs[this.state.selectedObjectItem]}
         nameChange={this.changeName}
         xChange={this.changeX}
