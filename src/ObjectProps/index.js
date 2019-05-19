@@ -50,7 +50,7 @@ class ObjectProps extends React.Component {
             sizeChange={this.props.sizeChange} 
             selectedItem={this.props.selectedItem} />
         );
-      case "Polygon":
+      default:
         return(
           <PolygonSettings 
             sizeChange={this.props.sizeChange} 
@@ -64,11 +64,6 @@ class ObjectProps extends React.Component {
   
   render() {
     return( 
-    <div className="object-props pane">
-      <div className="object-pane-header">
-        <h1 className="display-4 figure-header">Modify a figure</h1>
-        <h2>You are currently modifing {this.props.selectedItem.name}</h2>
-      </div>
       <div className="scrollable-config">
         <div className="object-prop-control-no-marg">
           <p><strong>Figure name:</strong>
@@ -138,10 +133,67 @@ class ObjectProps extends React.Component {
         {this.renderBasedOnType()}
 
         </div>
-    </div>
     );
   }
 }
 
 
-  export default ObjectProps;
+class ObjectSettings extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      showProps: true,
+      showAnimations: false
+    }
+  }
+
+  setToProps = () => {
+    this.setState({
+      showProps: true,
+      showAnimations: false
+    })
+  };
+
+  setToAnimations = () => {
+    this.setState({
+      showProps: false,
+      showAnimations: true
+    })
+  };
+
+  render(){
+   return(
+    <div className="object-props pane">
+      <div className="object-pane-header">
+        <h1 className="display-4 figure-header">Modify a figure</h1>
+        <h2>You are currently modifing {this.props.selectedItem.name}</h2>
+        <div className="row">
+            <button className="btn btn-primary" onClick={() => this.setToProps()}>Change Properties</button>
+            <button className="btn btn-primary" onClick={() => this.setToAnimations()}>Change Animations</button>
+        </div>
+      </div>
+      {this.state.showProps ? (<ObjectProps {...this.props} />) : (<ObjectAnimations />)}
+    </div>
+   );
+  }
+}
+
+
+function ObjectAnimations(props){
+  return (
+    <div className="scrollable-config">
+      <p><strong>Animation Preset:</strong>
+        <div className="form-group object-prop-control">
+          <select className="form-control object-prop-control">
+            <option>Circle</option>
+            <option>Left to Right</option>
+            <option>Spiral</option>
+          </select>
+        </div>
+        </p>
+    </div>
+  );
+}
+
+
+  export default ObjectSettings;

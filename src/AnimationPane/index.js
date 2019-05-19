@@ -1,12 +1,12 @@
 import React from 'react';
 import './AnimationPane.css';
-import { ReactComponent as Logo} from '../logo.svg';
+import Svg from './svg';
 
 class AnimationPane extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { svg: props.image };
+    this.state = { figures: props.figures };
   }
 
   componentDidUpdate() {
@@ -18,11 +18,10 @@ class AnimationPane extends React.Component {
         <div>
           <h1 className="display-4 figure-header">See what happends
           <button className="btn btn-primary export"> Export SVG </button></h1>
-        
+
         </div>
         <div className="animation" >
-        {/* <img src={this.state.svg} className="animation" alt="svg animation" /> */}
-        <Logo />
+        <Svg figures={this.props.figures} />
         </div>
       </div>
     }
