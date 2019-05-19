@@ -185,6 +185,7 @@ function ObjectAnimations(props){
       <p><strong>Animation Preset:</strong>
         <div className="form-group object-prop-control">
           <select className="form-control object-prop-control">
+            <option>Still</option>
             <option>Flicker</option>
             <option>Circle</option>
             <option>Left to Right</option>
