@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import ObjectsPane from './ObjectsPane';
 import ObjectProps from './ObjectProps';
@@ -11,9 +10,9 @@ class App extends React.Component{
     this.state = {
       selectedObjectItem: 0,
       objs:  [
-      {name: "Figure 1", x: 75, y: 35, opacity: 1, type: "circle", fillColor: "#f1f111", strokeColor: "#6b7d1c"},
-      {name: "Figure 2", x: 45, y: 45, opacity: 1, type: "circle", fillColor: "#f1f111", strokeColor: "#6b7d1c"},
-      {name: "Figure 3", x: 35, y: 75, opacity: 1, type: "circle", fillColor: "#f1f111", strokeColor: "#6b7d1c"}
+      {name: "Figure 1", x: 75, y: 35, size: 5, opacity: 1, type: "circle", fillColor: "#f1f111", strokeColor: "#6b7d1c"},
+      {name: "Figure 2", x: 45, y: 45, size: 10, opacity: 1, type: "square", fillColor: "#f1f111", strokeColor: "#6b7d1c"},
+      {name: "Figure 3", x: 35, y: 75, size: 5, opacity: 1, type: "circle", fillColor: "#f1f111", strokeColor: "#6b7d1c"}
     ]
     };
   }
@@ -22,7 +21,7 @@ class App extends React.Component{
     let newObjects = [...this.state.objs];
     let num = newObjects.length+1;
     newObjects.push({name: "Figure "+ num});
-    this.setState({ 
+    this.setState({
       objs : newObjects,
       selectedObjectItem: newObjects.length-1
     });
@@ -55,7 +54,7 @@ class App extends React.Component{
     else if(e.keyCode === 13){
       objects[this.state.selectedObjectItem].name = e.target.value;
       e.target.value = "";
-      
+
     }
     this.setState({objs: objects});
   }
@@ -127,15 +126,15 @@ class App extends React.Component{
   render(){
     return (
       <div className="app">
-      <ObjectsPane 
-        objects={this.state.objs} 
+      <ObjectsPane
+        objects={this.state.objs}
         addItem={this.addItemFunc}
         selectItem={this.selectItemFunc}
         deleteItem={this.deleteItemFunc} />
 
       { (this.state.objs.length !== 0) ? (
-        <ObjectProps 
-        selectedItem={this.state.objs[this.state.selectedObjectItem]} 
+        <ObjectProps
+        selectedItem={this.state.objs[this.state.selectedObjectItem]}
         nameChange={this.changeName}
         xChange={this.changeX}
         yChange={this.changeY}
@@ -152,10 +151,10 @@ class App extends React.Component{
         <div className="object-props pane">
           <div className="object-pane-header">
           </div>
-        </div> 
+        </div>
       )}
-    
-      <AnimationPane image={logo}/>
+
+      <AnimationPane figures={this.state.objs}/>
       <div className="footer text-muted font-italic"><strong>SVG Madness</strong> - Michał Chęciński and Bartosz Strachowski</div>
       </div>
     );
