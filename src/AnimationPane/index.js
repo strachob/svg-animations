@@ -21,7 +21,7 @@ class AnimationPane extends React.Component {
 
         </div>
         <div className="animation" >
-        <Svg figures={this.state.figures} />
+        <Svg figures={this.props.figures} />
         </div>
       </div>
     }

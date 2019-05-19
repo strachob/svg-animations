@@ -1,6 +1,7 @@
 import React from 'react';
-import Circle from './circle';
-import Square from './square';
+// import Circle from './circle';
+// import Square from './square';
+import { Circle, Square, Polygon } from "./svgfigures"
 
 export default class Svg extends React.Component {
     constructor(props) {
@@ -16,12 +17,15 @@ export default class Svg extends React.Component {
     generateSvg()
     {
         var svgElements =[];
-        this.state.figures.forEach(element => {
-            if (element.type === 'circle') {
+        this.props.figures.forEach(element => {
+            if (element.type == "Circle") {
                 svgElements.push(<Circle object={element} />);
             }
-            if (element.type === 'square') {
+            if (element.type == "Square") {
                 svgElements.push(<Square object={element} />);
+            }
+            if (element.type == "Polygon") {
+                svgElements.push(<Polygon object={element} />);
             }
         });
 

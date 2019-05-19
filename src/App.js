@@ -10,9 +10,9 @@ class App extends React.Component{
     this.state = {
       selectedObjectItem: 0,
       objs:  [
-      {name: "Figure 1", x: 75, y: 35, size: 5, opacity: 1, type: "circle", fillColor: "#f1f111", strokeColor: "#6b7d1c"},
-      {name: "Figure 2", x: 45, y: 45, size: 10, opacity: 1, type: "square", fillColor: "#f1f111", strokeColor: "#6b7d1c"},
-      {name: "Figure 3", x: 35, y: 75, size: 5, opacity: 1, type: "circle", fillColor: "#f1f111", strokeColor: "#6b7d1c"}
+      {name: "Figure 1", x: 75, y: 35, diameter: 5, size: 5, opacity: 1, type: "Circle", fillColor: "#f1f111", strokeColor: "#6b7d1c"},
+      {name: "Figure 2", x: 45, y: 45, size: 10, opacity: 1, type: "Square", fillColor: "#f1f111", strokeColor: "#6b7d1c"},
+      {name: "Figure 3", x: 35, y: 75, diameter: 5, size: 5, opacity: 1, type: "Circle", fillColor: "#f1f111", strokeColor: "#6b7d1c"}
     ]
     };
   }
