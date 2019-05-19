@@ -20,7 +20,16 @@ class App extends React.Component{
   addItemFunc = (e) => {
     let newObjects = [...this.state.objs];
     let num = newObjects.length+1;
-    newObjects.push({name: "Figure "+ num});
+    newObjects.push({
+      name: "Figure "+ num,
+      x: 50,
+      y: 50,
+      type: "Circle",
+      diameter: 5,
+      opacity: 1,
+      fillColor: "#f1f111",
+      strokeColor: "#6b7d1c"
+    });
     this.setState({
       objs : newObjects,
       selectedObjectItem: newObjects.length-1
@@ -79,6 +88,10 @@ class App extends React.Component{
 
   changeType = (e) => {
     let objects = [...this.state.objs];
+    if(e.target.value === "Polygon" && objects[this.state.selectedObjectItem].sides === undefined){
+      objects[this.state.selectedObjectItem].sides = 3;
+      objects[this.state.selectedObjectItem].startAngle = 90;
+    }
     objects[this.state.selectedObjectItem].type = e.target.value;
     this.setState({objs: objects});
   }

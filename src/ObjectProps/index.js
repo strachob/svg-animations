@@ -50,7 +50,7 @@ class ObjectProps extends React.Component {
             sizeChange={this.props.sizeChange} 
             selectedItem={this.props.selectedItem} />
         );
-      case "Polygon":
+      default:
         return(
           <PolygonSettings 
             sizeChange={this.props.sizeChange} 

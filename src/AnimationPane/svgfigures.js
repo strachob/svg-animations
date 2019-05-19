@@ -58,10 +58,7 @@ function Polygon(props){
 function generatePolygonPoints(cx,cy,r,n,sDeg) {
         var res='';
         cx=parseInt(cx,10); cy=parseInt(cy,10); r=parseInt(r,10); n=parseInt(n,10); sDeg=parseInt(sDeg,10);
-        console.log(cx, cy, r, n, sDeg);
         if(!isNaN(cx) && !isNaN(cy) && !isNaN(r) && !isNaN(n) && !isNaN(sDeg) && n>2 && r>0) {
-
-
           var centerAng = 2*Math.PI / n;
           var startAng = toRadians(sDeg);
           var vertex = [];
