@@ -40,20 +40,20 @@ class ObjectProps extends React.Component {
     switch(this.props.selectedItem.type){
       case "Circle":
         return(
-          <CircleSettings 
-            diameterChange={this.props.diameterChange} 
+          <CircleSettings
+            diameterChange={this.props.diameterChange}
             selectedItem={this.props.selectedItem}/>
         );
       case "Square":
         return(
-          <SquareSettings 
-            sizeChange={this.props.sizeChange} 
+          <SquareSettings
+            sizeChange={this.props.sizeChange}
             selectedItem={this.props.selectedItem} />
         );
       default:
         return(
-          <PolygonSettings 
-            sizeChange={this.props.sizeChange} 
+          <PolygonSettings
+            sizeChange={this.props.sizeChange}
             sidesChange={this.props.sidesChange}
             startAngleChange={this.props.startAngleChange}
             selectedItem={this.props.selectedItem} />
@@ -61,15 +61,15 @@ class ObjectProps extends React.Component {
     }
   };
 
-  
+
   render() {
-    return( 
+    return(
       <div className="scrollable-config">
         <div className="object-prop-control-no-marg">
           <p><strong>Figure name:</strong>
           <div className="input-group mb-3 object-prop-control">
-            <input typeName="text" className="form-control" 
-                    placeholder={this.props.selectedItem.name} 
+            <input typeName="text" className="form-control"
+                    placeholder={this.props.selectedItem.name}
                     aria-label="Recipient's username" aria-describedby="basic-addon2"
                     onKeyUp={(e) => this.props.nameChange(e, "")}
                     onBlur={(e) => {
@@ -108,8 +108,8 @@ class ObjectProps extends React.Component {
         <p><strong>Fill color:</strong>
         <div className="object-prop-control">
           <div className="input-group mb-3">
-            <input type="text" 
-                  onClick={() => this.onFillPickerShow()} 
+            <input type="text"
+                  onClick={() => this.onFillPickerShow()}
                   value={this.props.selectedItem.fillColor}
                   className="form-control"
                   style={{backgroundColor: this.props.selectedItem.fillColor}}/>
@@ -121,8 +121,8 @@ class ObjectProps extends React.Component {
         <p><strong>Stroke color:</strong>
         <div className="object-prop-control">
           <div className="input-group mb-3">
-            <input type="text" 
-                  onClick={() => this.onStrokePickerShow()} 
+            <input type="text"
+                  onClick={() => this.onStrokePickerShow()}
                   value={this.props.selectedItem.strokeColor}
                   className="form-control"
                   style={{backgroundColor: this.props.selectedItem.strokeColor}}/>
@@ -185,6 +185,7 @@ function ObjectAnimations(props){
       <p><strong>Animation Preset:</strong>
         <div className="form-group object-prop-control">
           <select className="form-control object-prop-control">
+            <option>Flicker</option>
             <option>Circle</option>
             <option>Left to Right</option>
             <option>Spiral</option>
