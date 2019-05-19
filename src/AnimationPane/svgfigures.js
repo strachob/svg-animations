@@ -51,7 +51,6 @@ function Polygon(props){
             stroke-width="1"
             stroke-opacity={props.object.opacity}
             stroke-dasharray="">
-        >
         </polygon>
     );
 }
