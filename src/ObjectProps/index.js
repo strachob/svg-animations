@@ -179,7 +179,7 @@ function ObjectAnimations(props){
     <div className="scrollable-config">
       <p><strong>Animation Preset:</strong>
         <div className="form-group object-prop-control">
-          <select className="form-control object-prop-control" value={props.selectedItem.animation} onChange={(e) => props.functions.animationChange(e)}>
+          <select className="form-control object-prop-control" value={props.selectedItem.animation.name} onChange={(e) => props.functions.animationChange(e)}>
             <option>Still</option>
             <option>Flicker</option>
             <option>Circle</option>

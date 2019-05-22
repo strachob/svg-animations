@@ -7,14 +7,21 @@ import AnimationPane from './AnimationPane';
 class App extends React.Component{
   constructor(props){
     super(props);
-    // Bartek delete after animation type implementation
-    var animation = { name: "Left to Right", duration: "5" };
+
     this.state = {
       selectedObjectItem: 0,
       objs:  [
-      {name: "Figure 1", x: 75, y: 35, diameter: 5, size: 5, opacity: 1, type: "Circle", fillColor: "#f1f111", strokeColor: "#6b7d1c", animation: animation},
-      {name: "Figure 2", x: 45, y: 45, size: 10, opacity: 1, type: "Square", fillColor: "#f1f111", strokeColor: "#6b7d1c", animation: animation},
-      {name: "Figure 3", x: 35, y: 75, diameter: 5, size: 5, opacity: 1, type: "Circle", fillColor: "#f1f111", strokeColor: "#6b7d1c", animation: animation}
+      {name: "Figure 1", x: 75, y: 35, diameter: 5, size: 5, 
+        opacity: 1, type: "Circle", fillColor: "#f1f111", strokeColor: "#6b7d1c", 
+        animation: {name: "Left to Right", duration: "5"}},
+
+      {name: "Figure 2", x: 45, y: 45, size: 10, 
+        opacity: 1, type: "Square", fillColor: "#f1f111", strokeColor: "#6b7d1c",
+        animation: {name: "Left to Right", duration: "5"}},
+
+      {name: "Figure 3", x: 35, y: 75, diameter: 5, size: 5, 
+        opacity: 1, type: "Circle", fillColor: "#f1f111", strokeColor: "#6b7d1c",
+        animation: {name: "Left to Right", duration: "5"}}
     ]
     };
   }
@@ -32,7 +39,7 @@ class App extends React.Component{
       fillColor: "#f1f111",
       strokeColor: "#6b7d1c",
       animation: {
-        name: "None", 
+        name: "Still", 
         duration: "5"
       }
     });
@@ -144,7 +151,7 @@ class App extends React.Component{
 
   changeAnimation = (e) => {
     let objects = [...this.state.objs];
-    objects.forEach( (object) => object.animation = e.target.value);
+    objects[this.state.selectedObjectItem].animation.name = e.target.value;
     this.setState({objs: objects});
   }
 
