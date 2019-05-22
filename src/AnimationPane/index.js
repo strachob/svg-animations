@@ -20,9 +20,7 @@ class AnimationPane extends React.Component {
           <button className="btn btn-primary export"> Export SVG </button></h1>
 
         </div>
-        <div className="animation" >
         <Svg figures={this.props.figures} />
-        </div>
       </div>
     }
   }
