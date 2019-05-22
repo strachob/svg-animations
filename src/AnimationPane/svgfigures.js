@@ -9,11 +9,11 @@ function Circle(props){
                 r={props.object.diameter}
                 opacity={props.object.opacity}
                 fill={props.object.fillColor}
-                fill-opacity={props.object.opacity}
+                fillOpacity={props.object.opacity}
                 stroke={props.object.strokeColor}
-                stroke-width="1"
-                stroke-opacity={props.object.opacity}
-                stroke-dasharray="">
+                strokeWidth="1"
+                strokeOpacity={props.object.opacity}
+                strokeDasharray="">
                 {getAnimation(props.object)}
         </circle>
       );
@@ -29,11 +29,11 @@ function Square(props){
             height={props.object.size}
             opacity={props.object.opacity}
             fill={props.object.fillColor}
-            fill-opacity={props.object.opacity}
+            fillOpacity={props.object.opacity}
             stroke={props.object.strokeColor}
-            stroke-width="1"
-            stroke-opacity={props.object.opacity}
-            stroke-dasharray="">
+            strokeWidth="1"
+            strokeOpacity={props.object.opacity}
+            strokeDasharray="">
             {getAnimation(props.object)}
         </rect>
       );
@@ -41,18 +41,18 @@ function Square(props){
 
 function Polygon(props){
     var points = generatePolygonPoints(props.object.x, props.object.y, props.object.size, props.object.sides, props.object.startAngle);
-    console.log("points" + points);
+
     return (
         <polygon
             id={props.object.name}
             points={points}
             opacity={props.object.opacity}
             fill={props.object.fillColor}
-            fill-opacity={props.object.opacity}
+            fillOpacity={props.object.opacity}
             stroke={props.object.strokeColor}
-            stroke-width="1"
-            stroke-opacity={props.object.opacity}
-            stroke-dasharray="">
+            strokeWidth="1"
+            strokeOpacity={props.object.opacity}
+            strokeDasharray="">
             {getAnimation(props.object)}
         </polygon>
     );
