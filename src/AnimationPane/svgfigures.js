@@ -145,9 +145,8 @@ function getAnimation(object)
         );
     }
     else if (object.animation.name === "Circle") {
-        // Bartek możesz dorobić wybór r przez użytkownika i tutaj odczytywać object.animation.r
-        var r=Math.abs(object.x-50);
-
+        // var r=Math.abs(object.x-50);
+        var r = object.animation.r;
         var rr = 2*r;
 
         var path = "M 0,0 a " + r + "," +r + " 0 1,0 " + rr + ",0 a " + r + "," +r + " 0 1,0 -" + rr + ",0";
