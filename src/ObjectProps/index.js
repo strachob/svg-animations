@@ -172,7 +172,7 @@ class ObjectSettings extends React.Component{
             <button className="btn btn-primary" onClick={() => this.setToAnimations()}>Change Animations</button>
         </div>
       </div>
-      {this.state.showProps ? (<ObjectProps {...this.props} />) : (<ObjectAnimations />)}
+      {this.state.showProps ? (<ObjectProps {...this.props} />) : (<ObjectAnimations {...this.props} />)}
     </div>
    );
   }
@@ -184,12 +184,11 @@ function ObjectAnimations(props){
     <div className="scrollable-config">
       <p><strong>Animation Preset:</strong>
         <div className="form-group object-prop-control">
-          <select className="form-control object-prop-control">
+          <select className="form-control object-prop-control" value={props.selectedItem.animation} onChange={(e) => props.animationChange(e)}>
             <option>Still</option>
             <option>Flicker</option>
             <option>Circle</option>
             <option>Left to Right</option>
-            <option>Spiral</option>
           </select>
         </div>
         </p>

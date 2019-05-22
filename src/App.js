@@ -7,12 +7,14 @@ import AnimationPane from './AnimationPane';
 class App extends React.Component{
   constructor(props){
     super(props);
+    // Bartek delete after animation type implementation
+    var animation = { name: "Left to Right", duration: "5" };
     this.state = {
       selectedObjectItem: 0,
       objs:  [
-      {name: "Figure 1", x: 75, y: 35, diameter: 5, size: 5, opacity: 1, type: "Circle", fillColor: "#f1f111", strokeColor: "#6b7d1c"},
-      {name: "Figure 2", x: 45, y: 45, size: 10, opacity: 1, type: "Square", fillColor: "#f1f111", strokeColor: "#6b7d1c"},
-      {name: "Figure 3", x: 35, y: 75, diameter: 5, size: 5, opacity: 1, type: "Circle", fillColor: "#f1f111", strokeColor: "#6b7d1c"}
+      {name: "Figure 1", x: 75, y: 35, diameter: 5, size: 5, opacity: 1, type: "Circle", fillColor: "#f1f111", strokeColor: "#6b7d1c", animation: animation},
+      {name: "Figure 2", x: 45, y: 45, size: 10, opacity: 1, type: "Square", fillColor: "#f1f111", strokeColor: "#6b7d1c", animation: animation},
+      {name: "Figure 3", x: 35, y: 75, diameter: 5, size: 5, opacity: 1, type: "Circle", fillColor: "#f1f111", strokeColor: "#6b7d1c", animation: animation}
     ]
     };
   }
@@ -136,6 +138,12 @@ class App extends React.Component{
     this.setState({objs: objects});
   }
 
+  changeAnimation = (e) => {
+    let objects = [...this.state.objs];
+    objects.forEach( (object) => object.animation = e.target.value);
+    this.setState({objs: objects});
+  }
+
   render(){
     return (
       <div className="app">
@@ -159,6 +167,7 @@ class App extends React.Component{
         sizeChange={this.changeSize}
         sidesChange={this.changeSides}
         startAngleChange={this.changeStartAngle}
+        animationChange={this.changeAnimation}
          />
       ) : (
         <div className="object-props pane">
