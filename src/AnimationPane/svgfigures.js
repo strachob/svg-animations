@@ -78,12 +78,45 @@ function generatePolygonPoints(cx,cy,r,n,sDeg) {
         return res;
 }
 
+function generateMovedPolygonPoints(cx,cy,r,n,sDeg) {
+    var res='';
+    cx=parseInt(cx,10); cy=parseInt(cy,10); r=parseInt(r,10); n=parseInt(n,10); sDeg=parseInt(sDeg,10);
+    if(!isNaN(cx) && !isNaN(cy) && !isNaN(r) && !isNaN(n) && !isNaN(sDeg) && n>2 && r>0) {
+      var centerAng = 2*Math.PI / n;
+      var startAng = toRadians(sDeg);
+      var maxVx = 0.0;
+      var ang,vx,vy;
+      for(var i=0 ; i<n ; i++) {
+        ang = startAng + (i*centerAng);
+        vx = (cx + r*Math.cos(ang)).toFixed(2);
+        if (vx > maxVx) {
+            maxVx = vx;
+        }
+      }
+
+      var vertex = [];
+      for(i=0 ; i<n ; i++) {
+        ang = startAng + (i*centerAng);
+        vx = (cx + r*Math.cos(ang)).toFixed(2);
+        var move = 100-(maxVx-vx);
+        vx = move;
+        vy = (cy - r*Math.sin(ang)).toFixed(2);
+        vertex.push( vx+','+vy );
+      }
+      res=vertex.join(' ');
+    }
+
+    return res;
+}
+
 function toRadians(degs) {
     return Math.PI*degs/180;
 }
 
 function getAnimation(object)
 {
+    var duration = object.animation.duration +"s";
+
     var p;
     if (object.type === "Circle") {
         p = "cx";
@@ -93,9 +126,14 @@ function getAnimation(object)
     }
     if (object.type === "Polygon") {
         p="points";
+        if (object.animation.name === "Left to Right") {
+            return(
+                <animate attributeName="points" dur={duration} fill="freeze" repeatCount="indefinite"
+                  from={generatePolygonPoints(object.x, object.y, object.size, object.sides, object.startAngle)}
+                  to={generateMovedPolygonPoints(object.x, object.y, object.size, object.sides, object.startAngle)} />
+            );
+        }
     }
-
-    var duration = object.animation.duration +"s";
 
     if (object.animation.name === "Still") {
         return;
