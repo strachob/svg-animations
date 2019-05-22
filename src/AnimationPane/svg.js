@@ -19,13 +19,13 @@ export default class Svg extends React.Component {
         var svgElements =[];
         this.props.figures.forEach(element => {
             if (element.type === "Circle") {
-                svgElements.push(<Circle object={element} />);
+                svgElements.push(<Circle key={element.name.toString()} object={element} />);
             }
             if (element.type === "Square") {
-                svgElements.push(<Square object={element} />);
+                svgElements.push(<Square key={element.name.toString()} object={element} />);
             }
             if (element.type === "Polygon") {
-                svgElements.push(<Polygon object={element} />);
+                svgElements.push(<Polygon key={element.name.toString()} object={element} />);
             }
         });
 
