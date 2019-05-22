@@ -30,7 +30,11 @@ class App extends React.Component{
       diameter: 5,
       opacity: 1,
       fillColor: "#f1f111",
-      strokeColor: "#6b7d1c"
+      strokeColor: "#6b7d1c",
+      animation: {
+        name: "None", 
+        duration: "5"
+      }
     });
     this.setState({
       objs : newObjects,
@@ -144,6 +148,30 @@ class App extends React.Component{
     this.setState({objs: objects});
   }
 
+  functionHolder = {
+    generalFunctions: {
+      nameChange: this.changeName,
+      xChange:this.changeX,
+      yChange:this.changeY,
+      opacityChange:this.changeOpacity,
+      typeChange:this.changeType,
+      fillColorChange:this.changefillColor,
+      strokeColorChange:this.changeStrokeColor
+    },
+    circleFunctions: {
+      diameterChange: this.changeDiameter
+    },
+    squareFunctions: {
+      sizeChange: this.changeSize
+    },
+    polygonFunctions: {
+      sizeChange: this.changeSize,
+      sidesChange: this.changeSides,
+      startAngleChange: this.changeStartAngle,
+    },
+    animationChange: this.changeAnimation
+  };
+
   render(){
     return (
       <div className="app">
@@ -156,18 +184,7 @@ class App extends React.Component{
       { (this.state.objs.length !== 0) ? (
         <ObjectSettings
         selectedItem={this.state.objs[this.state.selectedObjectItem]}
-        nameChange={this.changeName}
-        xChange={this.changeX}
-        yChange={this.changeY}
-        opacityChange={this.changeOpacity}
-        typeChange={this.changeType}
-        fillColorChange={this.changefillColor}
-        strokeColorChange={this.changeStrokeColor}
-        diameterChange={this.changeDiameter}
-        sizeChange={this.changeSize}
-        sidesChange={this.changeSides}
-        startAngleChange={this.changeStartAngle}
-        animationChange={this.changeAnimation}
+        functions={this.functionHolder}
          />
       ) : (
         <div className="object-props pane">

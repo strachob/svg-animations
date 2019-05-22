@@ -25,15 +25,15 @@ function PolygonSettings(props) {
     return(
         <div>
             <p><strong>Polygon sie:</strong></p>
-            <input type="range" className="slider" onChange={(e) => props.sizeChange(e)} value={props.selectedItem.size} min="1"/>
+            <input type="range" className="slider" onChange={(e) => props.functions.sizeChange(e)} value={props.selectedItem.size} min="1"/>
             <p>Polygon size set to: {props.selectedItem.size}</p>
 
             <p><strong>Sides:</strong></p>
-            <input type="range" className="slider" onChange={(e) => props.sidesChange(e)} value={props.selectedItem.sides} min="3" max="10"/>
+            <input type="range" className="slider" onChange={(e) => props.functions.sidesChange(e)} value={props.selectedItem.sides} min="3" max="10"/>
             <p>Number of sides set to: {props.selectedItem.sides}</p>
 
             <p><strong>Start angle:</strong></p>
-            <input type="range" className="slider" onChange={(e) => props.startAngleChange(e)} value={props.selectedItem.startAngle} max="120"/>
+            <input type="range" className="slider" onChange={(e) => props.functions.startAngleChange(e)} value={props.selectedItem.startAngle} max="120"/>
             <p>Start angle set to: {props.selectedItem.startAngle}</p>
         </div>
     );

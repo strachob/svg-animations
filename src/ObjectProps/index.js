@@ -26,14 +26,14 @@ class ObjectProps extends React.Component {
     this.setState({
       displayFillPicker: false
     })
-    this.props.fillColorChange(color.hex);
+    this.props.functions.generalFunctions.fillColorChange(color.hex);
   };
 
   onStrokePickerChanged = color => {
     this.setState({
       displayStrokePicker: false
     })
-    this.props.strokeColorChange(color.hex);
+    this.props.functions.generalFunctions.strokeColorChange(color.hex);
   };
 
   renderBasedOnType = () => {
@@ -41,21 +41,19 @@ class ObjectProps extends React.Component {
       case "Circle":
         return(
           <CircleSettings
-            diameterChange={this.props.diameterChange}
+            diameterChange={this.props.functions.circleFunctions.diameterChange}
             selectedItem={this.props.selectedItem}/>
         );
       case "Square":
         return(
           <SquareSettings
-            sizeChange={this.props.sizeChange}
+            sizeChange={this.props.functions.squareFunctions.sizeChange}
             selectedItem={this.props.selectedItem} />
         );
       default:
         return(
           <PolygonSettings
-            sizeChange={this.props.sizeChange}
-            sidesChange={this.props.sidesChange}
-            startAngleChange={this.props.startAngleChange}
+            functions={this.props.functions.polygonFunctions}
             selectedItem={this.props.selectedItem} />
         );
     }
@@ -71,13 +69,13 @@ class ObjectProps extends React.Component {
             <input typeName="text" className="form-control"
                     placeholder={this.props.selectedItem.name}
                     aria-label="Recipient's username" aria-describedby="basic-addon2"
-                    onKeyUp={(e) => this.props.nameChange(e, "")}
+                    onKeyUp={(e) => this.props.functions.generalFunctions.nameChange(e, "")}
                     onBlur={(e) => {
                       this.setState({name: e.target.value});
                       e.target.value = "";
                     }} />
             <div className="input-group-append">
-              <button className="btn btn-primary" type="button" onClick={(e) => this.props.nameChange(e, this.state.name)}>Save</button>
+              <button className="btn btn-primary" type="button" onClick={(e) => this.props.functions.generalFunctions.nameChange(e, this.state.name)}>Save</button>
             </div>
           </div>
           </p>
@@ -85,7 +83,7 @@ class ObjectProps extends React.Component {
 
         <p><strong>Figure type:</strong>
         <div className="form-group object-prop-control">
-          <select className="form-control object-prop-control"  value={this.props.selectedItem.type} onChange={(e) => this.props.typeChange(e)}>
+          <select className="form-control object-prop-control"  value={this.props.selectedItem.type} onChange={(e) => this.props.functions.generalFunctions.typeChange(e)}>
             <option>Circle</option>
             <option>Square</option>
             <option>Polygon</option>
@@ -94,15 +92,15 @@ class ObjectProps extends React.Component {
         </p>
 
         <p><strong>X position:</strong></p>
-        <input type="range" className="slider" onChange={(e) => this.props.xChange(e)} value={this.props.selectedItem.x}/>
+        <input type="range" className="slider" onChange={(e) => this.props.functions.generalFunctions.xChange(e)} value={this.props.selectedItem.x}/>
         <p>X set to: {this.props.selectedItem.x}</p>
 
         <p><strong>Y position:</strong></p>
-        <input type="range" className="slider" onChange={(e) => this.props.yChange(e)} value={this.props.selectedItem.y}/>
+        <input type="range" className="slider" onChange={(e) => this.props.functions.generalFunctions.yChange(e)} value={this.props.selectedItem.y}/>
         <p>Y set to: {this.props.selectedItem.y}</p>
 
         <p><strong>Opacity:</strong></p>
-        <input type="range" className="slider" onChange={(e) => this.props.opacityChange(e)} value={this.props.selectedItem.opacity} max="1" step="0.01"/>
+        <input type="range" className="slider" onChange={(e) => this.props.functions.generalFunctions.opacityChange(e)} value={this.props.selectedItem.opacity} max="1" step="0.01"/>
         <p>Opacity set to: {this.props.selectedItem.opacity}</p>
 
         <p><strong>Fill color:</strong>
@@ -142,22 +140,19 @@ class ObjectSettings extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      showProps: true,
-      showAnimations: false
+      showProps: true
     }
   }
 
   setToProps = () => {
     this.setState({
-      showProps: true,
-      showAnimations: false
+      showProps: true
     })
   };
 
   setToAnimations = () => {
     this.setState({
-      showProps: false,
-      showAnimations: true
+      showProps: false
     })
   };
 
@@ -184,7 +179,7 @@ function ObjectAnimations(props){
     <div className="scrollable-config">
       <p><strong>Animation Preset:</strong>
         <div className="form-group object-prop-control">
-          <select className="form-control object-prop-control" value={props.selectedItem.animation} onChange={(e) => props.animationChange(e)}>
+          <select className="form-control object-prop-control" value={props.selectedItem.animation} onChange={(e) => props.functions.animationChange(e)}>
             <option>Still</option>
             <option>Flicker</option>
             <option>Circle</option>
