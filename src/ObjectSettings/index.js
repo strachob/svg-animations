@@ -25,14 +25,14 @@ class ObjectSettings extends React.Component{
 
   render(){
    return(
-      <div className="pane my-auto">
+      <div className="pane">
         <div className="pane-header border-bottom border-light">
           <h1 className="figure-header">Modify a figure</h1>
           <h4>You are currently modifing</h4>
-          <h5 className="font-italic">{this.props.selectedItem.name} </h5>
-          <div className="">
-              <button className="btn btn-primary" onClick={() => this.setToProps()}>Change Properties</button>
-              <button className="btn btn-primary" onClick={() => this.setToAnimations()}>Change Animations</button>
+          <h4 className="font-italic font-weight-bolder"><span className="rounded" style={{backgroundColor: "#fff000"}}>{this.props.selectedItem.name} </span></h4>
+          <div className="btn-group">
+              <button type="button" className="btn btn-sm btn-primary " onClick={() => this.setToProps()}>Change Properties</button>
+              <button type="button" className="btn btn-sm btn-primary " onClick={() => this.setToAnimations()}>Change Animations</button>
           </div>
         </div>
         {this.state.showProps ? (<ObjectProps {...this.props} />) : (<ObjectAnimations {...this.props} />)}

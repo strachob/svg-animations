@@ -59,15 +59,13 @@ class ObjectProps extends React.Component {
     }
   };
 
-
   render() {
     return(
       <div className="scrollable-config pl-5">
         <div className="object-prop-control-no-marg">
-          <p><strong>Figure name:</strong>
+          <p><strong>Figure name:</strong></p>
           <div className="input-group mb-3 object-prop-control">
-            <input typeName="text" className="form-control"
-                    placeholder={this.props.selectedItem.name}
+            <input className="form-control" placeholder={this.props.selectedItem.name}
                     aria-label="Recipient's username" aria-describedby="basic-addon2"
                     onKeyUp={(e) => this.props.functions.generalFunctions.nameChange(e, "")}
                     onBlur={(e) => {
@@ -78,10 +76,9 @@ class ObjectProps extends React.Component {
               <button className="btn btn-primary" onClick={(e) => this.props.functions.generalFunctions.nameChange(e, this.state.name)}>Save</button>
             </div>
           </div>
-          </p>
         </div>
 
-        <p><strong>Figure type:</strong>
+        <p><strong>Figure type:</strong></p>
         <div className="form-group object-prop-control">
           <select className="form-control object-prop-control"  value={this.props.selectedItem.type} onChange={(e) => this.props.functions.generalFunctions.typeChange(e)}>
             <option>Circle</option>
@@ -89,7 +86,7 @@ class ObjectProps extends React.Component {
             <option>Polygon</option>
           </select>
         </div>
-        </p>
+  
 
         <p><strong>X position:</strong></p>
         <input type="range" className="slider" onChange={(e) => this.props.functions.generalFunctions.xChange(e)} value={this.props.selectedItem.x}/>
@@ -103,31 +100,28 @@ class ObjectProps extends React.Component {
         <input type="range" className="slider" onChange={(e) => this.props.functions.generalFunctions.opacityChange(e)} value={this.props.selectedItem.opacity} max="1" step="0.01"/>
         <p>Opacity set to: {this.props.selectedItem.opacity}</p>
 
-        <p><strong>Fill color:</strong>
+        <p><strong>Fill color:</strong></p>
         <div className="object-prop-control">
           <div className="input-group mb-3">
-            <input type="text"
-                  onClick={() => this.onFillPickerShow()}
+            <input type="text" onClick={() => this.onFillPickerShow()}
                   value={this.props.selectedItem.fillColor}
                   className="form-control"
-                  style={{backgroundColor: this.props.selectedItem.fillColor}}/>
+                  style={{backgroundColor: this.props.selectedItem.fillColor}} readOnly/>
             {this.state.displayFillPicker && <CompactPicker onChange={this.onFillPickerChanged}/>}
           </div>
         </div>
-        </p>
 
-        <p><strong>Stroke color:</strong>
+        <p><strong>Stroke color:</strong></p>
         <div className="object-prop-control">
           <div className="input-group mb-3">
-            <input type="text"
-                  onClick={() => this.onStrokePickerShow()}
+            <input type="text" onClick={() => this.onStrokePickerShow()}
                   value={this.props.selectedItem.strokeColor}
                   className="form-control"
-                  style={{backgroundColor: this.props.selectedItem.strokeColor}}/>
+                  style={{backgroundColor: this.props.selectedItem.strokeColor}} readOnly/>
             {this.state.displayStrokePicker && <CompactPicker onChange={this.onStrokePickerChanged}/>}
           </div>
         </div>
-        </p>
+
         {this.renderBasedOnType()}
 
         </div>

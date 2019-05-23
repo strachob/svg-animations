@@ -174,7 +174,6 @@ class App extends React.Component{
 
   parseSvgToObjects = (svgString) => {
     var objects = getObjectsFromSvgString(svgString);
-    console.log(objects);
     this.setState({objs: objects});
   }
 
@@ -205,7 +204,6 @@ class App extends React.Component{
   };
 
   render(){
-    console.log(this.state.objs)
     return (
       <div className="container-fluid p-0">
         <div className="row w-100 m-0">
