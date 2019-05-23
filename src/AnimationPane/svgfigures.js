@@ -149,7 +149,7 @@ function getAnimation(object)
         var r = object.animation.r;
         var rr = 2*r;
 
-        var path = "M 0,0 a " + r + "," +r + " 0 1,0 " + rr + ",0 a " + r + "," +r + " 0 1,0 -" + rr + ",0";
+        var path = "M 0,0 m -"+ r +", 0 a " + r + "," +r + " 0 1,0 " + rr + ",0 a " + r + "," +r + " 0 1,0 -" + rr + ",0";
         return(
             <animateMotion
             dur={duration}
