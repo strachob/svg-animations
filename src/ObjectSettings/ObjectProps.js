@@ -74,7 +74,7 @@ class ObjectProps extends React.Component {
                       this.setState({name: e.target.value});
                       e.target.value = "";
                     }} />
-            <div className="input-group-append">
+            <div>
               <button className="btn btn-primary" onClick={(e) => this.props.functions.generalFunctions.nameChange(e, this.state.name)}>Save</button>
             </div>
           </div>
