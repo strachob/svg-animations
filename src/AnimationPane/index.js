@@ -70,7 +70,7 @@ class AnimationPane extends React.Component {
            isOpen={this.state.openExportModal}
            contentLabel="Export Modal"
         >
-          <textarea rows="20" cols="100" name="svg">{this.state.svg}</textarea>
+          <textarea rows="20" cols="100" name="svg" readOnly="true">{this.state.svg}</textarea>
           <button onClick={() => this.closeExportModal()}>Close</button>
         </ReactModal>
 
