@@ -5,7 +5,7 @@ function CircleSettings(props) {
     return(
         <div>
             <p><strong>Circle diameter:</strong></p>
-            <input type="range" className="slider" onChange={(e) => props.diameterChange(e)} value={props.selectedItem.diameter} min="1"/>
+            <input type="range" className="slider" max="75" onChange={(e) => props.diameterChange(e)} value={props.selectedItem.diameter} min="1"/>
             <p>Diameter set to: {props.selectedItem.diameter}</p>
         </div>
     );
@@ -15,7 +15,7 @@ function SquareSettings(props) {
     return(
         <div>
             <p><strong>Square size:</strong></p>
-            <input type="range" className="slider" onChange={(e) => props.sizeChange(e)} value={props.selectedItem.size} min="1"/>
+            <input type="range" className="slider" max="75" onChange={(e) => props.sizeChange(e)} value={props.selectedItem.size} min="1"/>
             <p>Square size set to: {props.selectedItem.size}</p>
         </div>
     );
@@ -24,8 +24,8 @@ function SquareSettings(props) {
 function PolygonSettings(props) {
     return(
         <div>
-            <p><strong>Polygon sie:</strong></p>
-            <input type="range" className="slider" onChange={(e) => props.functions.sizeChange(e)} value={props.selectedItem.size} min="1"/>
+            <p><strong>Polygon size:</strong></p>
+            <input type="range" className="slider" max="75" onChange={(e) => props.functions.sizeChange(e)} value={props.selectedItem.size} min="1"/>
             <p>Polygon size set to: {props.selectedItem.size}</p>
 
             <p><strong>Sides:</strong></p>

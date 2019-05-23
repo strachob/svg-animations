@@ -62,7 +62,7 @@ class ObjectProps extends React.Component {
 
   render() {
     return(
-      <div className="scrollable-config middle">
+      <div className="scrollable-config pl-5">
         <div className="object-prop-control-no-marg">
           <p><strong>Figure name:</strong>
           <div className="input-group mb-3 object-prop-control">
@@ -96,7 +96,7 @@ class ObjectProps extends React.Component {
         <p>X set to: {this.props.selectedItem.x}</p>
 
         <p><strong>Y position:</strong></p>
-        <input type="range" className="slider" onChange={(e) => this.props.functions.generalFunctions.yChange(e)} value={this.props.selectedItem.y}/>
+        <input type="range" className="slider" max="80" onChange={(e) => this.props.functions.generalFunctions.yChange(e)} value={this.props.selectedItem.y}/>
         <p>Y set to: {this.props.selectedItem.y}</p>
 
         <p><strong>Opacity:</strong></p>

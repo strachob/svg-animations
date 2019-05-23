@@ -25,12 +25,12 @@ class ObjectSettings extends React.Component{
 
   render(){
    return(
-      <div className="object-props pane">
-        <div className="object-props-header border-bottom border-light">
-          <h3 className="figure-header">Modify a figure</h3>
-          <h4 className="middle">You are currently modifing</h4>
-          <h4 className="middle">{this.props.selectedItem.name} </h4>
-          <div className="row">
+      <div className="pane my-auto">
+        <div className="pane-header border-bottom border-light">
+          <h1 className="figure-header">Modify a figure</h1>
+          <h4>You are currently modifing</h4>
+          <h5 className="font-italic">{this.props.selectedItem.name} </h5>
+          <div className="">
               <button className="btn btn-primary" onClick={() => this.setToProps()}>Change Properties</button>
               <button className="btn btn-primary" onClick={() => this.setToAnimations()}>Change Animations</button>
           </div>

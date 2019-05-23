@@ -32,7 +32,7 @@ export default class Svg extends React.Component {
 
   render() {
     return (
-      <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+      <svg width="100%" height="100%" viewBox="0 0 100 76.5" preserveAspectRatio="xMidYMid meet">
       {this.generateSvg()}
     </svg>
     )
