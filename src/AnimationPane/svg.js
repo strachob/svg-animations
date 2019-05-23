@@ -35,8 +35,8 @@ export default class Svg extends React.Component {
   render() {
     return (
       <svg viewBox="0 0 120 87" preserveAspectRatio="xMidYMid meet">
-        {this.generateSvg()}
-      </svg>
+      {this.generateSvg()}
+    </svg>
     )
   }
 }
