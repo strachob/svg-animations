@@ -1,6 +1,6 @@
 import React from 'react';
 import './AnimationPane.css';
-import {generatePolygonPoints} from './PolygonHelpers';
+import {generatePolygonPoints} from './PolygonFunctions';
 import Animation from './Animation';
 
 function Circle(props){
@@ -17,6 +17,7 @@ function Circle(props){
                 strokeOpacity={props.object.opacity}
                 strokeDasharray="">
                 <Animation object={props.object} />
+                {/* {getAnimation(props.object)} */}
         </circle>
       );
 }

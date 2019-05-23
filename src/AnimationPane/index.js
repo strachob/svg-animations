@@ -1,6 +1,6 @@
 import React from 'react';
 import './AnimationPane.css';
-import Svg from './svg';
+import Svg from './Svg';
 
 class AnimationPane extends React.Component {
   constructor(props) {
