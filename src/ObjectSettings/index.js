@@ -27,8 +27,9 @@ class ObjectSettings extends React.Component{
    return(
       <div className="object-props pane">
         <div className="object-props-header border-bottom border-light">
-          <h1 className="display-4 figure-header">Modify a figure</h1>
-          <h2 className="middle">You are currently modifing {this.props.selectedItem.name}</h2>
+          <h3 className="figure-header">Modify a figure</h3>
+          <h4 className="middle">You are currently modifing</h4>
+          <h4 className="middle">{this.props.selectedItem.name} </h4>
           <div className="row">
               <button className="btn btn-primary" onClick={() => this.setToProps()}>Change Properties</button>
               <button className="btn btn-primary" onClick={() => this.setToAnimations()}>Change Animations</button>

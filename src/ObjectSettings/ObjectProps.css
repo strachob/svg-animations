@@ -1,5 +1,5 @@
 .object-props{
-    width: 30%;;
+    /* width: 30%; */
 }
 
 .middle{
@@ -7,7 +7,7 @@
 }
 
 .object-prop-control {
-  width: 75%;
+  /* width: 75%; */
   margin-top: 20px;
   font-weight: bold;
 }
@@ -54,13 +54,13 @@
     -webkit-transition: .2s; /* 0.2 seconds transition on hover */
     transition: opacity .2s;
   }
-  
+
   /* Mouse-over effects */
   .slider:hover {
     opacity: 1; /* Fully shown on mouse-over */
   }
-  
-  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
+
+  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
   .slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
@@ -69,7 +69,7 @@
     background: #8064A2; /* Green background */
     cursor: pointer; /* Cursor on hover */
   }
-  
+
   .slider::-moz-range-thumb {
     width: 25px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */

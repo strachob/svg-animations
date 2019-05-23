@@ -204,27 +204,33 @@ class App extends React.Component{
   render(){
     console.log(this.state.objs)
     return (
-      <div className="app">
-      <ObjectsPane
-        objects={this.state.objs}
-        addItem={this.addItemFunc}
-        selectItem={this.selectItemFunc}
-        deleteItem={this.deleteItemFunc} />
-
-      { (this.state.objs.length !== 0) ? (
-        <ObjectSettings
-        selectedItem={this.state.objs[this.state.selectedObjectItem]}
-        functions={this.functionHolder}
-         />
-      ) : (
-        <div className="object-props pane">
-          <div className="object-pane-header">
-          </div>
+      <div className="container-fluid p-0">
+        <div className="row w-100 m-0">
+          <div className="col-lg-3">
+            <ObjectsPane
+              objects={this.state.objs}
+              addItem={this.addItemFunc}
+              selectItem={this.selectItemFunc}
+              deleteItem={this.deleteItemFunc} />
+            </div>
+            <div className="col-lg-3">
+              { (this.state.objs.length !== 0) ? (
+                <ObjectSettings
+                selectedItem={this.state.objs[this.state.selectedObjectItem]}
+                functions={this.functionHolder}
+                />
+              ) : (
+                <div className="object-props pane">
+                  <div className="object-pane-header">
+                  </div>
+                </div>
+              )}
+            </div>
+        <div className="col-lg-6">
+          <AnimationPane figures={this.state.objs} parseSvgToObjects={this.parseSvgToObjects}/>
         </div>
-      )}
-
-      <AnimationPane figures={this.state.objs} parseSvgToObjects={this.parseSvgToObjects}/>
-      <div className="footer text-muted font-italic"><strong>SVG Madness</strong> - Michał Chęciński and Bartosz Strachowski</div>
+      {/* <div className="footer text-muted font-italic"><strong>SVG Madness</strong> - Michał Chęciński and Bartosz Strachowski</div> */}
+      </div>
       </div>
     );
   }

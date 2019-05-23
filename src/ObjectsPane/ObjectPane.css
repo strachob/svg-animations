@@ -1,13 +1,8 @@
-.object-pane{
-    width: 20%;
-    /* left: 0; */
-    position: relative;
-    
-}
+
 
 .object-pane li{
     display: block;
-    width: 70%;
+    /* width: 70%; */
     height: 50px;
     border: 1px solid #000;
     float: left;
@@ -19,7 +14,7 @@
     float: right;
     opacity: 0.1;
   }
-  
+
   .trash-btn:hover{
     opacity: 1;
   }
@@ -41,7 +36,7 @@
 
 .list-object:hover {
     background-color: lightblue;
-    width: 105%;
+    /* width: 105%; */
     height: 52px;
     font-weight: bold;
 }
