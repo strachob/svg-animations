@@ -62,7 +62,7 @@ class ObjectProps extends React.Component {
 
   render() {
     return(
-      <div className="scrollable-config">
+      <div className="scrollable-config middle">
         <div className="object-prop-control-no-marg">
           <p><strong>Figure name:</strong>
           <div className="input-group mb-3 object-prop-control">
@@ -75,7 +75,7 @@ class ObjectProps extends React.Component {
                       e.target.value = "";
                     }} />
             <div className="input-group-append">
-              <button className="btn btn-primary" type="button" onClick={(e) => this.props.functions.generalFunctions.nameChange(e, this.state.name)}>Save</button>
+              <button className="btn btn-primary" onClick={(e) => this.props.functions.generalFunctions.nameChange(e, this.state.name)}>Save</button>
             </div>
           </div>
           </p>
@@ -158,17 +158,17 @@ class ObjectSettings extends React.Component{
 
   render(){
    return(
-    <div className="object-props pane">
-      <div className="object-pane-header">
-        <h1 className="display-4 figure-header">Modify a figure</h1>
-        <h2>You are currently modifing {this.props.selectedItem.name}</h2>
-        <div className="row">
-            <button className="btn btn-primary" onClick={() => this.setToProps()}>Change Properties</button>
-            <button className="btn btn-primary" onClick={() => this.setToAnimations()}>Change Animations</button>
+      <div className="object-props pane">
+        <div className="object-props-header border-bottom border-light">
+          <h1 className="display-4 figure-header">Modify a figure</h1>
+          <h2 className="middle">You are currently modifing {this.props.selectedItem.name}</h2>
+          <div className="row">
+              <button className="btn btn-primary" onClick={() => this.setToProps()}>Change Properties</button>
+              <button className="btn btn-primary" onClick={() => this.setToAnimations()}>Change Animations</button>
+          </div>
         </div>
+        {this.state.showProps ? (<ObjectProps {...this.props} />) : (<ObjectAnimations {...this.props} />)}
       </div>
-      {this.state.showProps ? (<ObjectProps {...this.props} />) : (<ObjectAnimations {...this.props} />)}
-    </div>
    );
   }
 }
@@ -176,7 +176,7 @@ class ObjectSettings extends React.Component{
 
 function ObjectAnimations(props){
   return (
-    <div className="scrollable-config">
+    <div className="scrollable-config middle">
       <p><strong>Animation Preset:</strong>
         <div className="form-group object-prop-control">
           <select className="form-control object-prop-control" value={props.selectedItem.animation.name} onChange={(e) => props.functions.animationChange(e)}>

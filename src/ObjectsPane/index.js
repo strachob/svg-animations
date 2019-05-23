@@ -16,22 +16,23 @@ class ObjectsPane extends React.Component {
 
   render() {
     return( 
-    <div className="object-pane pane">
-      <div className="object-pane-header">
-        <h4 className="display-4 figure-header">Select or Add a figure</h4>
-        <button onClick={(e) => this.props.addItem()} 
-                className="btn btn-primary new-obj-btn" 
-                type="button">
-                  <i className="fa fa-plus"></i>
-            Add new figure
-            
-        </button>
+      <div className="object-pane pane border-right border-light">
+        <div className="object-pane-header border-bottom border-light">
+          <h4 className="display-4 figure-header">Select or Add a figure</h4>
+          <button onClick={(e) => this.props.addItem()} 
+                  className="btn btn-primary new-obj-btn" 
+                  type="button">
+                    <i className="fa fa-plus"></i>
+              Add new figure
+              
+          </button>
+        </div>
+        <ObjectList 
+            objects={this.props.objects} 
+            selectItem={this.props.selectItem} 
+            deleteItem={this.props.deleteItem} />
       </div>
-      <ObjectList 
-          objects={this.props.objects} 
-          selectItem={this.props.selectItem} 
-          deleteItem={this.props.deleteItem} />
-    </div>
+    
     );
   }
   }

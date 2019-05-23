@@ -9,6 +9,7 @@ body {
 .scrollable-config {
   height: 600px;
   overflow-y: scroll;
+  margin-top: 5%;
 }
 
 .scrollable-config::-webkit-scrollbar {
@@ -48,6 +49,11 @@ body {
   margin-left: 15%;
   margin-bottom: 5%;
   vertical-align: middle;
+  /* text-align: center; */
+}
+
+.row{
+  padding-left: 20%;
 }
 
 .app-header {
@@ -72,3 +78,8 @@ body {
 .object-pane-header {
   height: 25%;
 }
+
+.object-props-header {
+  height: 23.9%;
+}
+

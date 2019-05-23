@@ -1,7 +1,11 @@
 .object-props{
-    width: 30%;
-    padding-left: 2%;
+    width: 30%;;
 }
+
+.middle{
+  padding-left: 5%;
+}
+
 
 .object-prop-control {
   width: 75%;
