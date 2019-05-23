@@ -19,7 +19,7 @@ function getObjectsFromSvgString(svgString)
         }
 
         if (element.name === "circle") {
-            svgObject = {name: attributes.id, cx: attributes.cx, cy: attributes.cy, r: attributes.r,
+            svgObject = {name: attributes.id, cx: attributes.cx, cy: attributes.cy, diameter: attributes.r,
             opacity: attributes.opacity, type: "Circle", fillColor: attributes.fill, strokeColor: attributes.stroke,
             animation: animation};
             svgObjects.push(svgObject);
@@ -32,7 +32,6 @@ function getObjectsFromSvgString(svgString)
             svgObjects.push(svgObject);
         }
     });
-    console.log(svgObjects);
     return svgObjects;
 }
 

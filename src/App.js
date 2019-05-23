@@ -3,6 +3,7 @@ import './App.css';
 import ObjectsPane from './ObjectsPane';
 import ObjectSettings from './ObjectProps';
 import AnimationPane from './AnimationPane';
+import getObjectsFromSvgString from './AnimationPane/parseSvg';
 
 class App extends React.Component{
   constructor(props){
@@ -168,6 +169,12 @@ class App extends React.Component{
     this.setState({objs: objects});
   }
 
+  parseSvgToObjects = (svgString) => {
+    var objects = getObjectsFromSvgString(svgString);
+    console.log(objects);
+    this.setState({objs: objects});
+  }
+
   functionHolder = {
     generalFunctions: {
       nameChange: this.changeName,
@@ -195,6 +202,7 @@ class App extends React.Component{
   };
 
   render(){
+    console.log(this.state.objs)
     return (
       <div className="app">
       <ObjectsPane
@@ -215,7 +223,7 @@ class App extends React.Component{
         </div>
       )}
 
-      <AnimationPane figures={this.state.objs}/>
+      <AnimationPane figures={this.state.objs} parseSvgToObjects={this.parseSvgToObjects}/>
       <div className="footer text-muted font-italic"><strong>SVG Madness</strong> - Michał Chęciński and Bartosz Strachowski</div>
       </div>
     );

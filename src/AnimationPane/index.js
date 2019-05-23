@@ -3,7 +3,6 @@ import ReactDOMServer from 'react-dom/server';
 import ReactModal from 'react-modal';
 import './AnimationPane.css';
 import Svg from './svg';
-import getObjectsFromSvgString from './parseSvg';
 
 class AnimationPane extends React.Component {
   constructor(props) {
@@ -30,7 +29,7 @@ class AnimationPane extends React.Component {
 
   closeImportModal = () => {
     this.setState({openImportModal: false});
-    getObjectsFromSvgString(this.state.importSvg);
+    this.props.parseSvgToObjects(this.state.importSvg);
   }
 
   componentDidUpdate() {
@@ -38,7 +37,7 @@ class AnimationPane extends React.Component {
   }
 
   generateExportSvg = () =>{
-    var svg = <Svg figures={this.state.figures} />;
+    var svg = <Svg figures={this.props.figures} />;
     this.setState({svg: ReactDOMServer.renderToStaticMarkup(svg)});
     this.openExportModal();
   }
@@ -54,7 +53,7 @@ class AnimationPane extends React.Component {
           <button className="btn btn-primary export" onClick={() => this.generateExportSvg() }> Export SVG </button>
           <button className="btn btn-primary export" onClick={() => this.openImportModal() }> Import SVG </button></h1>
         </div>
-        <Svg figures={this.state.figures} />
+        <Svg figures={this.props.figures} />
 
         <ReactModal
            isOpen={this.state.openExportModal}
