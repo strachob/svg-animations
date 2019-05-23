@@ -57,37 +57,51 @@ class AnimationPane extends React.Component {
     this.setState({importSvg: e.target.value});
   }
 
-    render() {
-      return <div className="animation-pane pane">
-        <div>
-          <h1 className="display-4 figure-header">See what happends
-          <button className="btn btn-primary export" onClick={() => this.generateExportSvg() }> Export SVG </button>
-          <button className="btn btn-primary export" onClick={() => this.openImportModal() }> Import SVG </button></h1>
-        </div>
-        <Svg figures={this.props.figures} />
-
-        <ReactModal
-           isOpen={this.state.openExportModal}
-           contentLabel="Export Modal"
-        >
-          <textarea rows="20" cols="100" name="svg" readOnly="true">{this.state.svg}</textarea>
-          <button onClick={() => this.closeExportModal()}>Close</button>
-        </ReactModal>
-
-        <ReactModal
-           isOpen={this.state.openImportModal}
-           contentLabel="Import Modal"
-        >
-          <div>
-            SVG to import:<br/>
-            <textarea rows="20" cols="100" name="svg" onChange={(e) => this.setImportSvg(e)}></textarea><br/>
-            <button onClick={() => this.closeImportModalWithImport()}>Import</button>
-            <button onClick={() => this.closeImportModal()}>Close</button>
-          </div>
-        </ReactModal>
-
-      </div>
+  modalStyles = {
+    content : {
+      top                   : '50%',
+      left                  : '50%',
+      right                 : 'auto',
+      bottom                : 'auto',
+      marginRight           : '-50%',
+      transform             : 'translate(-50%, -50%)'
     }
   }
+  render() {
+    return <div className="animation-pane pane">
+      <div>
+        <h1 className="display-4 figure-header">See what happens
+        <button className="btn btn-primary export" onClick={() => this.generateExportSvg() }> Export SVG </button>
+        <button className="btn btn-primary export" onClick={() => this.openImportModal() }> Import SVG </button></h1>
+      </div>
+      <Svg figures={this.props.figures} />
+
+      <ReactModal
+          isOpen={this.state.openExportModal}
+          contentLabel="Export Modal"
+          style={this.modalStyles}
+      >
+        <div>
+          <h3>Copy your SVG markup:</h3>
+        <textarea className="form-control" rows="20" cols="100" name="svg" readOnly="true">{this.state.svg}</textarea><br/>
+        <button className="btn btn-info float-right" onClick={() => this.closeExportModal()}>Close</button>
+        </div>
+      </ReactModal>
+
+      <ReactModal
+          isOpen={this.state.openImportModal}
+          contentLabel="Import Modal"
+          style={this.modalStyles}
+      >
+        <div>
+          <h3>Paste SVG markup to import your project:</h3>
+          <textarea className="form-control" rows="20" cols="100" name="svg" onChange={(e) => this.setImportSvg(e)}></textarea><br/>
+          <button className="btn btn-primary" onClick={() => this.closeImportModalWithImport()}>Import</button>
+          <button className="btn btn-info float-right" onClick={() => this.closeImportModal()}>Close</button>
+        </div>
+      </ReactModal>
+    </div>
+  }
+}
 
   export default AnimationPane;

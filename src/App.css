@@ -42,6 +42,8 @@ body {
   background-color: rgb(166, 146, 190);
   text-align: center;
   font-size: 35px;
+  z-index: -1;
+  position: relative;
 }
 
 .figure-header {

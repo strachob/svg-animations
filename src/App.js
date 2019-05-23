@@ -3,7 +3,7 @@ import './App.css';
 import ObjectsPane from './ObjectsPane';
 import ObjectSettings from './ObjectSettings';
 import AnimationPane from './AnimationPane';
-import getObjectsFromSvgString from './AnimationPane/parseSvg';
+import getObjectsFromSvgString from './AnimationPane/ParseSvg';
 
 class App extends React.Component{
   constructor(props){
