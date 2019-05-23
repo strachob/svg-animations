@@ -1,5 +1,5 @@
 import React from 'react';
-import { Circle, Square, Polygon } from "./Svgfigures"
+import { Circle, Square, Polygon } from "./SvgFigures"
 
 export default class Svg extends React.Component {
     constructor(props) {
