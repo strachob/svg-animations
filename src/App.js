@@ -13,15 +13,15 @@ class App extends React.Component{
       objs:  [
       {name: "Figure 1", x: 75, y: 35, diameter: 5, size: 5, 
         opacity: 1, type: "Circle", fillColor: "#f1f111", strokeColor: "#6b7d1c", 
-        animation: {name: "Left to Right", duration: "5"}},
+        animation: {name: "Left to Right", duration: "5", r: "4"}},
 
       {name: "Figure 2", x: 45, y: 45, size: 10, 
         opacity: 1, type: "Square", fillColor: "#f1f111", strokeColor: "#6b7d1c",
-        animation: {name: "Left to Right", duration: "5"}},
+        animation: {name: "Left to Right", duration: "5", r: "4"}},
 
       {name: "Figure 3", x: 35, y: 75, diameter: 5, size: 5, 
         opacity: 1, type: "Circle", fillColor: "#f1f111", strokeColor: "#6b7d1c",
-        animation: {name: "Left to Right", duration: "5"}}
+        animation: {name: "Left to Right", duration: "5", r: "4"}}
     ]
     };
   }
@@ -40,7 +40,8 @@ class App extends React.Component{
       strokeColor: "#6b7d1c",
       animation: {
         name: "Still", 
-        duration: "5"
+        duration: "5",
+        r: "4"
       }
     });
     this.setState({
@@ -155,6 +156,18 @@ class App extends React.Component{
     this.setState({objs: objects});
   }
 
+  changeAnimationDuration = (e) => {
+    let objects = [...this.state.objs];
+    objects[this.state.selectedObjectItem].animation.duration = e.target.value;
+    this.setState({objs: objects});
+  }
+
+  changeAnimationR = (e) => {
+    let objects = [...this.state.objs];
+    objects[this.state.selectedObjectItem].animation.r = e.target.value;
+    this.setState({objs: objects});
+  }
+
   functionHolder = {
     generalFunctions: {
       nameChange: this.changeName,
@@ -176,7 +189,9 @@ class App extends React.Component{
       sidesChange: this.changeSides,
       startAngleChange: this.changeStartAngle,
     },
-    animationChange: this.changeAnimation
+    animationChange: this.changeAnimation,
+    animationDuration: this.changeAnimationDuration,
+    circleAnimationR: this.changeAnimationR
   };
 
   render(){

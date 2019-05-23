@@ -187,6 +187,20 @@ function ObjectAnimations(props){
           </select>
         </div>
         </p>
+        <p><strong>Animation duration:</strong></p>
+        <input type="range" className="slider" max="20" step="0.5" onChange={(e) => props.functions.animationDuration(e)} value={props.selectedItem.animation.duration}/>
+        <p>Duration set to: {props.selectedItem.animation.duration}</p>
+
+        {props.selectedItem.animation.name === "Circle" ? 
+        (
+          <React.Fragment>
+            <p><strong>Circle diameter:</strong></p>
+            <input type="range" className="slider" max="20" step="0.5" onChange={(e) => props.functions.circleAnimationR(e)} value={props.selectedItem.animation.r}/>
+            <p>Diameter set to: {props.selectedItem.animation.r}</p>
+          </React.Fragment>
+        ) : (
+          <React.Fragment />
+        )}
     </div>
   );
 }
