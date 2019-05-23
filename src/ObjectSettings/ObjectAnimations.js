@@ -3,7 +3,7 @@ import './ObjectProps.css';
 
 function ObjectAnimations(props){
     return (
-        <div className="scrollable-config middle">
+        <div className="scrollable-config pl-5">
         <p><strong>Animation Preset:</strong>
             <div className="form-group object-prop-control">
             <select className="form-control object-prop-control" value={props.selectedItem.animation.name} onChange={(e) => props.functions.animationChange(e)}>

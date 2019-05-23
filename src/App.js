@@ -12,15 +12,15 @@ class App extends React.Component{
     this.state = {
       selectedObjectItem: 0,
       objs:  [
-      {name: "Figure 1", x: 75, y: 35, diameter: 5, size: 5,
+      {name: "Figure 1", x: 35, y: 35, diameter: 5, size: 5,
         opacity: 1, type: "Circle", fillColor: "#f1f111", strokeColor: "#6b7d1c",
         animation: {name: "Left to Right", duration: "5", r: "4"}},
 
-      {name: "Figure 2", x: 45, y: 45, size: 10,
+      {name: "Figure 2", x: 45, y: 15, size: 10,
         opacity: 1, type: "Square", fillColor: "#f1f111", strokeColor: "#6b7d1c",
         animation: {name: "Left to Right", duration: "5", r: "4"}},
 
-      {name: "Figure 3", x: 35, y: 75, diameter: 5, size: 5, sides: 3, startAngle: 90,
+      {name: "Figure 3", x: 15, y: 65, diameter: 5, size: 5, sides: 3, startAngle: 90,
         opacity: 1, type: "Polygon", fillColor: "#f1f111", strokeColor: "#6b7d1c",
         animation: {name: "Left to Right", duration: "5", r: "4"}}
     ]
@@ -36,6 +36,9 @@ class App extends React.Component{
       y: 50,
       type: "Circle",
       diameter: 5,
+      size:5,
+      sides: 3,
+      startAngle: 90,
       opacity: 1,
       fillColor: "#f1f111",
       strokeColor: "#6b7d1c",
@@ -171,7 +174,6 @@ class App extends React.Component{
 
   parseSvgToObjects = (svgString) => {
     var objects = getObjectsFromSvgString(svgString);
-    console.log(objects);
     this.setState({objs: objects});
   }
 
@@ -202,29 +204,34 @@ class App extends React.Component{
   };
 
   render(){
-    console.log(this.state.objs)
     return (
-      <div className="app">
-      <ObjectsPane
-        objects={this.state.objs}
-        addItem={this.addItemFunc}
-        selectItem={this.selectItemFunc}
-        deleteItem={this.deleteItemFunc} />
-
-      { (this.state.objs.length !== 0) ? (
-        <ObjectSettings
-        selectedItem={this.state.objs[this.state.selectedObjectItem]}
-        functions={this.functionHolder}
-         />
-      ) : (
-        <div className="object-props pane">
-          <div className="object-pane-header">
-          </div>
+      <div className="container-fluid p-0">
+        <div className="row w-100 m-0">
+          <div className="col-lg-3">
+            <ObjectsPane
+              objects={this.state.objs}
+              addItem={this.addItemFunc}
+              selectItem={this.selectItemFunc}
+              deleteItem={this.deleteItemFunc} />
+            </div>
+            <div className="col-lg-3">
+              { (this.state.objs.length !== 0) ? (
+                <ObjectSettings
+                selectedItem={this.state.objs[this.state.selectedObjectItem]}
+                functions={this.functionHolder}
+                />
+              ) : (
+                <div className="object-props pane">
+                  <div className="object-pane-header">
+                  </div>
+                </div>
+              )}
+            </div>
+        <div className="col-lg-6">
+          <AnimationPane figures={this.state.objs} parseSvgToObjects={this.parseSvgToObjects}/>
         </div>
-      )}
-
-      <AnimationPane figures={this.state.objs} parseSvgToObjects={this.parseSvgToObjects}/>
-      <div className="footer text-muted font-italic"><strong>SVG Madness</strong> - Michał Chęciński and Bartosz Strachowski</div>
+      <div className="col-lg-12 footer text-muted font-italic"><strong>SVG Madness</strong> - Michał Chęciński and Bartosz Strachowski</div>
+      </div>
       </div>
     );
   }
