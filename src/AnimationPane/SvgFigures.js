@@ -17,7 +17,6 @@ function Circle(props){
                 strokeOpacity={props.object.opacity}
                 strokeDasharray="">
                 <Animation object={props.object} />
-                {/* {getAnimation(props.object)} */}
         </circle>
       );
 }
