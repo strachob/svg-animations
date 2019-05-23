@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import ObjectsPane from './ObjectsPane';
-import ObjectSettings from './ObjectProps';
+import ObjectSettings from './ObjectSettings';
 import AnimationPane from './AnimationPane';
 
 class App extends React.Component{
