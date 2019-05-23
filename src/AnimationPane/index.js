@@ -11,7 +11,8 @@ class AnimationPane extends React.Component {
     this.state = {
       figures: props.figures,
       openExportModal: false,
-      openImportModal: false
+      openImportModal: false,
+      importSvg: null
     };
   }
 
@@ -29,7 +30,17 @@ class AnimationPane extends React.Component {
 
   closeImportModal = () => {
     this.setState({openImportModal: false});
-    this.props.parseSvgToObjects(this.state.importSvg);
+  }
+
+  closeImportModalWithImport = () => {
+    this.setState({openImportModal: false});
+    if (this.state.importSvg !== null) {
+      this.props.parseSvgToObjects(this.state.importSvg);
+    }
+    else{
+      window.alert('Nothing to import');
+    }
+    this.setState({importSvg: null});
   }
 
   componentDidUpdate() {
@@ -59,7 +70,7 @@ class AnimationPane extends React.Component {
            isOpen={this.state.openExportModal}
            contentLabel="Export Modal"
         >
-          <textarea rows="20" cols="100" name="svg">{this.state.svg}</textarea>
+          <textarea rows="20" cols="100" name="svg" readOnly="true">{this.state.svg}</textarea>
           <button onClick={() => this.closeExportModal()}>Close</button>
         </ReactModal>
 
@@ -70,7 +81,8 @@ class AnimationPane extends React.Component {
           <div>
             SVG to import:<br/>
             <textarea rows="20" cols="100" name="svg" onChange={(e) => this.setImportSvg(e)}></textarea><br/>
-            <button onClick={() => this.closeImportModal()}>Import</button>
+            <button onClick={() => this.closeImportModalWithImport()}>Import</button>
+            <button onClick={() => this.closeImportModal()}>Close</button>
           </div>
         </ReactModal>
 
