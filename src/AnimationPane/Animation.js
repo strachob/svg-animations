@@ -1,5 +1,5 @@
 import React from 'react';
-import {generatePolygonPoints, generateMovedPolygonPoints} from './PolygonHelpers';
+import {generatePolygonPoints, generateMovedPolygonPoints} from './PolygonFunctions';
 
 function Animation(props)
 {
