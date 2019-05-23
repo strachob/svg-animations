@@ -3,6 +3,7 @@ import './App.css';
 import ObjectsPane from './ObjectsPane';
 import ObjectSettings from './ObjectSettings';
 import AnimationPane from './AnimationPane';
+import getObjectsFromSvgString from './AnimationPane/parseSvg';
 
 class App extends React.Component{
   constructor(props){
@@ -11,16 +12,16 @@ class App extends React.Component{
     this.state = {
       selectedObjectItem: 0,
       objs:  [
-      {name: "Figure 1", x: 75, y: 35, diameter: 5, size: 5, 
-        opacity: 1, type: "Circle", fillColor: "#f1f111", strokeColor: "#6b7d1c", 
+      {name: "Figure 1", x: 75, y: 35, diameter: 5, size: 5,
+        opacity: 1, type: "Circle", fillColor: "#f1f111", strokeColor: "#6b7d1c",
         animation: {name: "Left to Right", duration: "5", r: "4"}},
 
-      {name: "Figure 2", x: 45, y: 45, size: 10, 
+      {name: "Figure 2", x: 45, y: 45, size: 10,
         opacity: 1, type: "Square", fillColor: "#f1f111", strokeColor: "#6b7d1c",
         animation: {name: "Left to Right", duration: "5", r: "4"}},
 
-      {name: "Figure 3", x: 35, y: 75, diameter: 5, size: 5, 
-        opacity: 1, type: "Circle", fillColor: "#f1f111", strokeColor: "#6b7d1c",
+      {name: "Figure 3", x: 35, y: 75, diameter: 5, size: 5, sides: 3, startAngle: 90,
+        opacity: 1, type: "Polygon", fillColor: "#f1f111", strokeColor: "#6b7d1c",
         animation: {name: "Left to Right", duration: "5", r: "4"}}
     ]
     };
@@ -39,7 +40,7 @@ class App extends React.Component{
       fillColor: "#f1f111",
       strokeColor: "#6b7d1c",
       animation: {
-        name: "Still", 
+        name: "Still",
         duration: "5",
         r: "4"
       }
@@ -168,6 +169,12 @@ class App extends React.Component{
     this.setState({objs: objects});
   }
 
+  parseSvgToObjects = (svgString) => {
+    var objects = getObjectsFromSvgString(svgString);
+    console.log(objects);
+    this.setState({objs: objects});
+  }
+
   functionHolder = {
     generalFunctions: {
       nameChange: this.changeName,
@@ -195,6 +202,7 @@ class App extends React.Component{
   };
 
   render(){
+    console.log(this.state.objs)
     return (
       <div className="app">
       <ObjectsPane
@@ -215,7 +223,7 @@ class App extends React.Component{
         </div>
       )}
 
-      <AnimationPane figures={this.state.objs}/>
+      <AnimationPane figures={this.state.objs} parseSvgToObjects={this.parseSvgToObjects}/>
       <div className="footer text-muted font-italic"><strong>SVG Madness</strong> - Michał Chęciński and Bartosz Strachowski</div>
       </div>
     );
