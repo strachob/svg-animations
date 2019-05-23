@@ -19,7 +19,7 @@ function getObjectsFromSvgString(svgString)
         }
 
         if (element.name === "circle") {
-            svgObject = {name: attributes.id, cx: attributes.x, cy: attributes.y, r: attributes.r,
+            svgObject = {name: attributes.id, cx: attributes.cx, cy: attributes.cy, r: attributes.r,
             opacity: attributes.opacity, type: "Circle", fillColor: attributes.fill, strokeColor: attributes.stroke,
             animation: animation};
             svgObjects.push(svgObject);
@@ -37,8 +37,34 @@ function getObjectsFromSvgString(svgString)
 }
 
 function getAnimation(element) {
+    var animationName = "Still";
+    if (element.hasOwnProperty("elements") === false ||
+        element.elements[0].hasOwnProperty("attributes") === false ) {
+        return(
+            {name: "Still", duration: "5", r: "5"}
+        );
+    }
+    var animation = element.elements[0];
+    var attributes = animation.attributes;
+    var r = 5;
+    if (animation.name === "animate") {
+        if (attributes.attributeName === "points" ||
+        attributes.attributeName === "x" ||
+        attributes.attributeName === "cx") {
+            animationName = "Left to Right";
+        }
+        if (attributes.attributeName === "opacity") {
+            animationName = "Flicker";
+        }
+    }
+    if (animation.name === "animateMotion") {
+        animationName = "Circle";
+        var path = attributes.path;
+        var points = path.split(" ");
+        r = points[3].split(",")[0].replace("-", "");
+    }
     return(
-        {name: "Still", duration: "0"}
+        {name: animationName, duration: attributes.dur.replace("s", ""), r: r}
     );
 }
 
