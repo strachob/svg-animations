@@ -8,7 +8,7 @@ function getObjectsFromSvgString(svgString)
 
     var svgObjects = [];
     jsonElems.forEach(element => {
-        var animation = {name: "Still", duration: "0"};
+        var animation = getAnimation(element);
         var attributes = element.attributes;
         var svgObject;
         if (element.name === "rect") {
@@ -34,6 +34,12 @@ function getObjectsFromSvgString(svgString)
     });
     console.log(svgObjects);
     return svgObjects;
+}
+
+function getAnimation(element) {
+    return(
+        {name: "Still", duration: "0"}
+    );
 }
 
 export default getObjectsFromSvgString;
