@@ -3,6 +3,7 @@ import ReactDOMServer from 'react-dom/server';
 import ReactModal from 'react-modal';
 import './AnimationPane.css';
 import Svg from './svg';
+import getObjectsFromSvgString from './parseSvg';
 
 class AnimationPane extends React.Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class AnimationPane extends React.Component {
 
   closeImportModal = () => {
     this.setState({openImportModal: false});
+    getObjectsFromSvgString(this.state.importSvg);
   }
 
   componentDidUpdate() {
