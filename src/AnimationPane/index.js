@@ -70,11 +70,13 @@ class AnimationPane extends React.Component {
   render() {
     return <div className="animation-pane pane">
       <div>
-        <h1 className="display-4 figure-header">See what happens
+        <div className="h-6 figure-header">See what happens
         <button className="btn btn-primary export" onClick={() => this.generateExportSvg() }> Export SVG </button>
-        <button className="btn btn-primary export" onClick={() => this.openImportModal() }> Import SVG </button></h1>
+        <button className="btn btn-primary export" onClick={() => this.openImportModal() }> Import SVG </button></div>
       </div>
-      <Svg figures={this.props.figures} />
+      <div>
+        <Svg figures={this.props.figures} />
+      </div>
 
       <ReactModal
           isOpen={this.state.openExportModal}

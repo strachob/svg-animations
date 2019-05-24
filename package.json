@@ -2,6 +2,7 @@
   "name": "svg-animations",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://michalchecinski.github.io/svg-animations/",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "font-awesome": "^4.7.0",
