@@ -1,17 +1,8 @@
-.object-props{
-    /* width: 30%; */
-}
-
-.middle{
-  padding-left: 5%;
-}
-
 .object-prop-control {
-  /* width: 75%; */
+  width: 75%;
   margin-top: 20px;
   font-weight: bold;
 }
-
 
 .object-prop-control-no-marg{
   width: 75%;
@@ -21,6 +12,7 @@
 .color-picker-container {
   position: relative;
 }
+
 .color-picker-palette {
   position: absolute;
   z-index: 100;

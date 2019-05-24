@@ -1,8 +1,6 @@
-
-
 .object-pane li{
     display: block;
-    /* width: 70%; */
+    width: 70%;
     height: 50px;
     border: 1px solid #000;
     float: left;
@@ -21,11 +19,6 @@
 
 .object-pane li:hover{
     font-weight: bold;
-}
-
-.new-obj-btn {
-    margin-left: 35%;
-    margin-bottom: 5%;
 }
 
 .list-object {

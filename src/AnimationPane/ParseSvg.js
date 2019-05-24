@@ -1,4 +1,3 @@
-
 function getObjectsFromSvgString(svgString)
 {
     var convert = require('xml-js');

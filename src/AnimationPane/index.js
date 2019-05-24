@@ -70,9 +70,9 @@ class AnimationPane extends React.Component {
   render() {
     return <div className="animation-pane pane">
       <div>
-        <div className="h-6 figure-header">See what happens
+        <h1 className="figure-header pane-header">See what happens
         <button className="btn btn-primary export" onClick={() => this.generateExportSvg() }> Export SVG </button>
-        <button className="btn btn-primary export" onClick={() => this.openImportModal() }> Import SVG </button></div>
+        <button className="btn btn-primary export" onClick={() => this.openImportModal() }> Import SVG </button></h1>
       </div>
       <div>
         <Svg figures={this.props.figures} />
@@ -81,20 +81,20 @@ class AnimationPane extends React.Component {
       <ReactModal
           isOpen={this.state.openExportModal}
           contentLabel="Export Modal"
-          style={this.modalStyles}
-      >
+          style={this.modalStyles}>
+
         <div>
           <h3>Copy your SVG markup:</h3>
-        <textarea className="form-control" rows="20" cols="100" name="svg" readOnly="true">{this.state.svg}</textarea><br/>
-        <button className="btn btn-info float-right" onClick={() => this.closeExportModal()}>Close</button>
+          <textarea className="form-control" rows="20" cols="100" name="svg" readOnly="true">{this.state.svg}</textarea><br/>
+          <button className="btn btn-info float-right" onClick={() => this.closeExportModal()}>Close</button>
         </div>
       </ReactModal>
 
       <ReactModal
           isOpen={this.state.openImportModal}
           contentLabel="Import Modal"
-          style={this.modalStyles}
-      >
+          style={this.modalStyles}>
+
         <div>
           <h3>Paste SVG markup to import your project:</h3>
           <textarea className="form-control" rows="20" cols="100" name="svg" onChange={(e) => this.setImportSvg(e)}></textarea><br/>
