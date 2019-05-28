@@ -230,7 +230,9 @@ class App extends React.Component{
         <div className="col-lg-6">
           <AnimationPane figures={this.state.objs} parseSvgToObjects={this.parseSvgToObjects}/>
         </div>
-      <div className="col-lg-12 footer text-muted font-italic"><strong>SVG Madness</strong> - Michał Chęciński and Bartosz Strachowski</div>
+        <div className="row w-100 m-0">
+          <div className="col-lg-12 footer text-muted font-italic"><h3><strong>SVG Madness</strong> - Michał Chęciński and Bartosz Strachowski</h3></div>
+        </div>
       </div>
       </div>
     );
