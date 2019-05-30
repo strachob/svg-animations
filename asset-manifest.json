@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/svg-animations/static/css/main.921045b0.chunk.css",
+    "main.js": "/svg-animations/static/js/main.f1d9415a.chunk.js",
+    "main.js.map": "/svg-animations/static/js/main.f1d9415a.chunk.js.map",
+    "runtime~main.js": "/svg-animations/static/js/runtime~main.2214b97a.js",
+    "runtime~main.js.map": "/svg-animations/static/js/runtime~main.2214b97a.js.map",
+    "static/css/2.6423d168.chunk.css": "/svg-animations/static/css/2.6423d168.chunk.css",
+    "static/js/2.d65c73e3.chunk.js": "/svg-animations/static/js/2.d65c73e3.chunk.js",
+    "static/js/2.d65c73e3.chunk.js.map": "/svg-animations/static/js/2.d65c73e3.chunk.js.map",
+    "index.html": "/svg-animations/index.html",
+    "precache-manifest.b6e63de037e623a20d500f2ca4439234.js": "/svg-animations/precache-manifest.b6e63de037e623a20d500f2ca4439234.js",
+    "service-worker.js": "/svg-animations/service-worker.js",
+    "static/css/2.6423d168.chunk.css.map": "/svg-animations/static/css/2.6423d168.chunk.css.map",
+    "static/css/main.921045b0.chunk.css.map": "/svg-animations/static/css/main.921045b0.chunk.css.map",
+    "static/media/font-awesome.min.css": "/svg-animations/static/media/fontawesome-webfont.fee66e71.woff"
+  }
+}
